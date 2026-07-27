@@ -1,0 +1,410 @@
+<!DOCTYPE html><html class="light" lang="en" style="width: 1279px; height: 3984px; overflow: hidden; position: relative;"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Admissions &amp; Scholarships - MIT VGHS</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&amp;family=Source+Serif+4:opsz,wght@8..144,600;8..144,700&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#f0f1f2",
+                        "tertiary-fixed-dim": "#ecc200",
+                        "surface-tint": "#4e5b96",
+                        "primary-fixed-dim": "#b8c3ff",
+                        "secondary": "#a04100",
+                        "inverse-surface": "#2e3132",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#f8f9fa",
+                        "outline-variant": "#c6c5d1",
+                        "surface-container-highest": "#e1e3e4",
+                        "primary": "#03144f",
+                        "tertiary": "#725c00",
+                        "on-error": "#ffffff",
+                        "surface": "#f8f9fa",
+                        "on-primary-container": "#8794d4",
+                        "outline": "#767681",
+                        "secondary-container": "#fc7728",
+                        "surface-container": "#edeeef",
+                        "on-surface-variant": "#454650",
+                        "on-tertiary-fixed-variant": "#564500",
+                        "on-tertiary-container": "#4d3e00",
+                        "secondary-fixed": "#ffdbcb",
+                        "background": "#f8f9fa",
+                        "tertiary-container": "#cca800",
+                        "on-secondary-fixed-variant": "#7a3000",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#dde1ff",
+                        "on-secondary-container": "#5d2300",
+                        "on-primary-fixed-variant": "#36437d",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#1d2b64",
+                        "on-secondary-fixed": "#341000",
+                        "error-container": "#ffdad6",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#e7e8e9",
+                        "surface-container-low": "#f3f4f5",
+                        "secondary-fixed-dim": "#ffb693",
+                        "surface-variant": "#e1e3e4",
+                        "on-tertiary-fixed": "#231b00",
+                        "tertiary-fixed": "#ffe07c",
+                        "on-surface": "#191c1d",
+                        "surface-dim": "#d9dadb",
+                        "on-primary-fixed": "#04154f",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#b8c3ff",
+                        "error": "#ba1a1a",
+                        "on-background": "#191c1d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "40px",
+                        "gutter": "24px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["\"Source Serif 4\""],
+                        "body-md": ["\"Source Sans 3\""],
+                        "body-lg": ["\"Source Sans 3\""],
+                        "headline-md": ["\"Source Serif 4\""],
+                        "headline-lg-mobile": ["\"Source Serif 4\""],
+                        "label-md": ["\"Source Sans 3\""],
+                        "display-lg": ["\"Source Serif 4\""]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        .shadow-interactive {
+            box-shadow: 0 4px 12px rgba(29, 43, 100, 0.08);
+        }
+
+        /* Timeline Styles */
+        .timeline-container {
+            position: relative;
+        }
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            background-color: #c6c5d1; /* outline-variant */
+            z-index: 0;
+        }
+        @media (max-width: 767px) {
+            .timeline-container::before {
+                left: 24px;
+            }
+        }
+        .timeline-node {
+            position: relative;
+            z-index: 10;
+        }
+        .timeline-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #f8f9fa; /* surface */
+            border: 4px solid #ecc200; /* tertiary-fixed-dim */
+            margin: 0 auto;
+        }
+        @media (max-width: 767px) {
+            .timeline-dot {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="bg-surface dark:bg-inverse-surface w-full top-0 sticky z-50 border-b border-outline-variant dark:border-outline transition-all duration-200 ease-in-out">
+<div class="max-w-container-max mx-auto px-margin-desktop flex justify-between items-center h-20">
+<!-- Brand Logo -->
+<a class="flex items-center gap-2" href="#">
+<img alt="MIT VGHS Logo" class="h-10 w-10 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUfnzM1ZFfxJ2IlHYTbBmVBmQsngn1gxtLGH1UT4ufygi5Ooyy0UZXfQ_j88eClzD6j24uEzbH01Egb_r-HvJXPELA9Hztu1wMyj9IeJzY8Wnyde0my2At2NS3XI_h3nWZyWVKLH-mPA_jRrHfecJVhrrdIYtELkx9bA_LDKk3eeD8YC_ah-ut8i0U_YiMfDQ5pW723cWm-CjdW1Q5T329NVFli0e9cWWpGC6pBHgCJ8PUHuGBOh73GwtngZBgGtYA6cMGd7_3ouk">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">MIT VGHS</span>
+</a>
+<!-- Desktop Navigation -->
+<div class="hidden md:flex items-center gap-6 font-body-md text-body-md">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">About</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Courses</a>
+<a class="text-secondary font-bold border-b-2 border-secondary pb-1" href="#">Admissions</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Faculty</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Contact</a>
+</div>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-4">
+<button class="hidden md:flex items-center justify-center h-10 px-4 bg-secondary-container text-on-secondary-container font-label-md text-label-md rounded shadow-interactive hover:opacity-90 transition-opacity">
+                    Apply Now
+                </button>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col items-center justify-start">
+<!-- Hero Section -->
+<section class="w-full bg-primary-container text-on-primary py-24 mb-16">
+<div class="max-w-container-max mx-auto px-margin-desktop text-center">
+<h1 class="font-display-lg text-display-lg text-on-primary md:hidden font-headline-lg-mobile text-headline-lg-mobile mb-4">Admissions &amp; Scholarships</h1>
+<h1 class="font-display-lg text-display-lg text-on-primary hidden md:block mb-4">Admissions &amp; Scholarships</h1>
+<nav class="flex justify-center items-center gap-2 font-label-md text-primary-fixed">
+<a class="hover:text-white transition-colors" href="#">Home</a>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<span class="text-white">Admissions</span>
+</nav>
+</div>
+</section>
+<!-- Application Timeline -->
+<section class="w-full max-w-container-max px-margin-desktop mb-24">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Application Timeline</h2>
+<p class="text-on-surface-variant font-body-md text-body-md max-w-2xl mx-auto">
+                    Follow our four-step process to enroll in your desired academic stream.
+                </p>
+</div>
+<div class="timeline-container py-8 max-w-4xl mx-auto overflow-hidden">
+<!-- Step 1 -->
+<div class="flex flex-col md:flex-row items-center md:items-start mb-16 timeline-node">
+<div class="w-full md:w-1/2 flex justify-start md:justify-end md:pr-12 pl-12 md:pl-0 mb-4 md:mb-0 relative">
+<div class="bg-surface-container-lowest border border-outline-variant p-8 rounded-lg shadow-sm w-full md:max-w-md">
+<span class="text-tertiary-container font-label-md text-label-md uppercase tracking-wider block mb-2">Step 01</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-3">Admission Enquiry</h3>
+<p class="text-on-surface-variant font-body-md text-sm">Fill out the online callback form on our website or visit the Alandi campus. Select your stream interest (Science or Commerce) and opt-in for competitive coaching (JEE/NEET/CET or CA/CS).</p>
+</div>
+<div class="absolute left-[16px] md:hidden top-6 timeline-dot"></div>
+</div>
+<div class="flex flex-wrap gap-2 mb-6 border-b border-outline-variant pb-2 mt-8"></div><div class="hidden md:flex justify-center w-[32px] absolute left-1/2 transform -translate-x-1/2 mt-8">
+<div class="timeline-dot"></div>
+</div>
+<div class="w-full md:w-1/2 md:pl-12"></div>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col md:flex-row items-center md:items-start mb-16 timeline-node">
+<div class="w-full md:w-1/2 md:pr-12 hidden md:block"></div>
+<div class="flex flex-wrap gap-2 mb-6 border-b border-outline-variant pb-2 mt-8"></div><div class="hidden md:flex justify-center w-[32px] absolute left-1/2 transform -translate-x-1/2 mt-8">
+<div class="timeline-dot"></div>
+</div>
+<div class="w-full md:w-1/2 flex justify-start pl-12 md:pl-12 relative">
+<div class="bg-surface-container-lowest border border-outline-variant p-8 rounded-lg shadow-sm w-full md:max-w-md">
+<span class="text-tertiary-container font-label-md text-label-md uppercase tracking-wider block mb-2">Step 02</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-3">Document Submission</h3>
+<p class="text-on-surface-variant font-body-md text-sm">Submit your Class 10th board marksheet, school leaving certificate, Aadhaar card copy, and passport size photographs for administrative verification.</p>
+</div>
+<div class="absolute left-[16px] md:hidden top-6 timeline-dot"></div>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col md:flex-row items-center md:items-start mb-16 timeline-node">
+<div class="w-full md:w-1/2 flex justify-start md:justify-end md:pr-12 pl-12 md:pl-0 mb-4 md:mb-0 relative">
+<div class="bg-surface-container-lowest border border-outline-variant p-8 rounded-lg shadow-sm w-full md:max-w-md">
+<span class="text-tertiary-container font-label-md text-label-md uppercase tracking-wider block mb-2">Step 03</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-3">Stream &amp; Coaching Selection</h3>
+<p class="text-on-surface-variant font-body-md text-sm">Meet with our expert academic counsellors to evaluate your career objectives (PCM / PCB engineering/medical options or Commerce CA/CS tracks) and choose the appropriate integrated program.</p>
+</div>
+<div class="absolute left-[16px] md:hidden top-6 timeline-dot"></div>
+</div>
+<div class="flex flex-wrap gap-2 mb-6 border-b border-outline-variant pb-2 mt-8"></div><div class="hidden md:flex justify-center w-[32px] absolute left-1/2 transform -translate-x-1/2 mt-8">
+<div class="timeline-dot"></div>
+</div>
+<div class="w-full md:w-1/2 md:pl-12"></div>
+</div>
+<!-- Step 4 -->
+<div class="flex flex-col md:flex-row items-center md:items-start timeline-node">
+<div class="w-full md:w-1/2 md:pr-12 hidden md:block"></div>
+<div class="flex flex-wrap gap-2 mb-6 border-b border-outline-variant pb-2 mt-8"></div><div class="hidden md:flex justify-center w-[32px] absolute left-1/2 transform -translate-x-1/2 mt-8">
+<div class="timeline-dot"></div>
+</div>
+<div class="w-full md:w-1/2 flex justify-start pl-12 md:pl-12 relative">
+<div class="bg-surface-container-lowest border border-outline-variant p-8 rounded-lg shadow-sm w-full md:max-w-md">
+<span class="text-tertiary-container font-label-md text-label-md uppercase tracking-wider block mb-2">Step 04</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-3">Seat Confirmation</h3>
+<p class="text-on-surface-variant font-body-md text-sm">Receive your admission confirmation card. Secure your seat by completing the fee payment and submitting the physical documents at the college office.</p>
+</div>
+<div class="absolute left-[16px] md:hidden top-6 timeline-dot"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Two Column Layout: Dates & Scholarships -->
+<section class="w-full max-w-container-max px-margin-desktop mb-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+<!-- Admission Dates -->
+<div>
+<h2 class="font-headline-lg text-headline-lg text-tertiary-container mb-6">Admission Dates</h2>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-primary text-on-primary font-label-md text-label-md">
+<tr>
+<th class="py-4 px-6 font-semibold">Admission Phase</th>
+<th class="py-4 px-6 font-semibold">Status</th>
+</tr>
+</thead>
+<tbody class="text-body-md font-body-md text-on-surface-variant divide-y divide-outline-variant">
+<tr>
+<td class="py-4 px-6 font-medium text-on-surface">Registration Opening</td>
+<td class="py-4 px-6"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">Completed</span></td>
+</tr>
+<tr>
+<td class="py-4 px-6 font-medium text-on-surface">Entrance/Scholarship Screening</td>
+<td class="py-4 px-6"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">Completed</span></td>
+</tr>
+<tr class="bg-surface-container-low">
+<td class="py-4 px-6 font-medium text-on-surface">Second Round Registration</td>
+<td class="py-4 px-6"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">Active</span></td>
+</tr>
+<tr>
+<td class="py-4 px-6 font-medium text-on-surface">Final Admission Cutoff</td>
+<td class="py-4 px-6"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">Upcoming</span></td>
+</tr>
+<tr>
+<td class="py-4 px-6 font-medium text-on-surface">Commencement of Classes</td>
+<td class="py-4 px-6"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">Scheduled</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Scholarships Program -->
+<div>
+<h2 class="font-headline-lg text-headline-lg text-tertiary-container mb-6">Scholarships Program</h2>
+<!-- Tabs -->
+<div class="flex flex-wrap gap-2 mb-6 border-b border-outline-variant pb-2"><button class="bg-primary text-on-primary px-4 py-2 rounded-full font-label-md text-sm">Scholarship Details</button></div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm overflow-x-auto">
+<table class="w-full text-left"><thead class="bg-primary text-on-primary font-label-md text-label-md"><tr><th class="py-4 px-6 font-semibold">Integrated Coaching Group</th><th class="py-4 px-6 font-semibold">Eligibility</th></tr></thead><tbody class="text-body-md font-body-md text-on-surface-variant divide-y divide-outline-variant"><tr><td class="py-4 px-6 font-medium text-on-surface">Science - JEE Program</td><td class="py-4 px-6 text-sm">10th Board Pass (Science/Maths)</td></tr><tr><td class="py-4 px-6 font-medium text-on-surface">Science - NEET Program</td><td class="py-4 px-6 text-sm">10th Board Pass (Science/Biology)</td></tr><tr><td class="py-4 px-6 font-medium text-on-surface">Science - MHT-CET Program</td><td class="py-4 px-6 text-sm">10th Board Pass (PCM/PCB)</td></tr></tbody></table>
+</div><div class="mt-8 bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm overflow-x-auto"><table class="w-full text-left"><thead class="bg-primary text-on-primary font-label-md text-label-md"><tr><th class="py-4 px-6 font-semibold">Commerce Integrated Program</th><th class="py-4 px-6 font-semibold">Eligibility</th></tr></thead><tbody class="text-body-md font-body-md text-on-surface-variant divide-y divide-outline-variant"><tr><td class="py-4 px-6 font-medium text-on-surface">Commerce - CA/CS Foundation</td><td class="py-4 px-6 text-sm">10th Board Pass</td></tr></tbody></table></div><div class="mt-8 p-6 bg-surface-container-low rounded-xl border border-outline-variant/20"><h3 class="font-headline-md text-primary mb-4">Scholarship Details</h3><div class="space-y-4"><div class="flex flex-col gap-1"><span class="font-bold text-on-surface">Merit-Based Scholarships</span><p class="text-sm text-on-surface-variant">Awarded to students with exceptional 10th Board scores (90%+). Includes fee waivers up to 50%.</p></div><div class="flex flex-col gap-1"><p class="text-sm text-on-surface-variant">Assistance for SC/ST/OBC and EBC categories as per state government norms.</p></div></div></div>
+<p class="text-xs text-on-surface-variant mt-4 italic">
+                    * Admission is subject to document verification and seat availability. Detailed fee schedules can be obtained by contacting the admissions desk.
+                </p>
+</div>
+</section>
+<!-- Our Campuses & Enquiry Directories -->
+<section class="w-full max-w-container-max px-margin-desktop mb-24">
+<h2 class="font-headline-lg text-headline-lg text-tertiary-container mb-6">Our Campuses &amp; Enquiry Directories</h2>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-primary text-on-primary font-label-md text-label-md">
+<tr>
+<th class="py-4 px-6 font-semibold">Campus Location</th>
+<th class="py-4 px-6 font-semibold">Enquiry Phone Number</th>
+</tr>
+</thead>
+<tbody class="text-body-md font-body-md text-on-surface-variant divide-y divide-outline-variant">
+<tr>
+<td class="py-4 px-6 font-medium text-on-surface">Alandi (Main Campus)</td>
+<td class="py-4 px-6">+91 8208429912 / +91 8669662105</td>
+</tr>
+<tr>
+<td class="py-4 px-6 font-medium text-on-surface">Loni Kalbhor</td>
+<td class="py-4 px-6">+91 9767901061 / +91 8208429912</td>
+</tr>
+<tr>
+<td class="py-4 px-6 font-medium text-on-surface">Talegaon</td>
+<td class="py-4 px-6">+91 8999679144</td>
+</tr>
+<tr>
+<td class="py-4 px-6 font-medium text-on-surface">Pandharpur</td>
+<td class="py-4 px-6">+91 7720049904</td>
+</tr>
+<tr>
+<td class="py-4 px-6 font-medium text-on-surface">Sangli</td>
+<td class="py-4 px-6">+91 7058504525</td>
+</tr>
+<tr>
+<td class="py-4 px-6 font-medium text-on-surface">Solapur</td>
+<td class="py-4 px-6">+91 9552420404</td>
+</tr>
+<tr>
+<td class="py-4 px-6 font-medium text-on-surface">Barshi</td>
+<td class="py-4 px-6">+91 8421450709</td>
+</tr>
+<tr>
+<td class="py-4 px-6 font-medium text-on-surface">Nanded</td>
+<td class="py-4 px-6">+91 7447443095</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- FAQ CTA -->
+<section class="w-full bg-primary-container text-on-primary py-20 mt-auto">
+<div class="max-w-container-max mx-auto px-margin-desktop text-center">
+<h2 class="font-headline-lg text-headline-lg mb-4">Have Questions About Enrollment?</h2>
+<p class="font-body-md text-body-md text-primary-fixed max-w-2xl mx-auto mb-8">
+                    Our admissions counsel team is available to assist you with stream selections, coaching syllabus details, and scholarships. Get in touch today.
+                </p>
+<div class="flex flex-col sm:flex-row justify-center gap-4">
+<button class="bg-tertiary-container text-on-tertiary-container font-label-md text-label-md py-3 px-8 rounded flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+                        Contact Admission Cell <span class="material-symbols-outlined text-sm">call</span>
+</button>
+<button class="border border-outline-variant text-on-primary font-label-md text-label-md py-3 px-8 rounded hover:bg-white/10 transition-colors">
+                        Browse Streams
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-inverse-surface dark:bg-surface-container-lowest w-full">
+<div class="max-w-container-max mx-auto px-margin-desktop py-12 flex flex-col md:flex-row justify-between items-center border-b border-outline-variant/20 mb-6">
+<div class="flex items-center gap-2 mb-6 md:mb-0">
+<img alt="MIT VGHS Logo" class="h-8 w-8 object-contain grayscale opacity-70" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUfnzM1ZFfxJ2IlHYTbBmVBmQsngn1gxtLGH1UT4ufygi5Ooyy0UZXfQ_j88eClzD6j24uEzbH01Egb_r-HvJXPELA9Hztu1wMyj9IeJzY8Wnyde0my2At2NS3XI_h3nWZyWVKLH-mPA_jRrHfecJVhrrdIYtELkx9bA_LDKk3eeD8YC_ah-ut8i0U_YiMfDQ5pW723cWm-CjdW1Q5T329NVFli0e9cWWpGC6pBHgCJ8PUHuGBOh73GwtngZBgGtYA6cMGd7_3ouk">
+<span class="font-headline-md text-lg text-surface-variant font-bold">MIT JUNIOR COLLEGE</span>
+</div>
+<div class="text-surface-variant text-sm max-w-md text-center md:text-left">
+                MAEER'S MIT Junior Colleges, Alandi. Providing academic excellence, integrated competitive coaching, and values-based education for HSC board and national entrances.
+            </div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop pb-8 flex flex-col md:flex-row justify-between items-center">
+<!-- Copyright -->
+<div class="font-label-md text-label-md text-surface-variant mb-6 md:mb-0 opacity-80">
+                © 2024 MAEER'S MIT Junior Colleges. All rights reserved.
+            </div>
+<!-- Links -->
+<div class="flex gap-6 font-label-md text-label-md">
+<a class="text-surface-variant opacity-80 hover:opacity-100 transition-opacity" href="#">Privacy Policy</a>
+<a class="text-surface-variant opacity-80 hover:opacity-100 transition-opacity" href="#">Terms of Service</a>
+<a class="text-surface-variant opacity-80 hover:opacity-100 transition-opacity" href="#">Official Website</a>
+</div>
+</div>
+</footer>
+</body></html>
