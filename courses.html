@@ -1,0 +1,742 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Courses - MIT VGHS</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&amp;family=Source+Serif+4:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "inverse-on-surface": "#f0f1f2",
+                "tertiary-fixed-dim": "#ecc200",
+                "surface-tint": "#4e5b96",
+                "primary-fixed-dim": "#b8c3ff",
+                "secondary": "#a04100",
+                "inverse-surface": "#2e3132",
+                "on-primary": "#ffffff",
+                "surface-bright": "#f8f9fa",
+                "outline-variant": "#c6c5d1",
+                "surface-container-highest": "#e1e3e4",
+                "primary": "#03144f",
+                "tertiary": "#725c00",
+                "on-error": "#ffffff",
+                "surface": "#f8f9fa",
+                "on-primary-container": "#8794d4",
+                "outline": "#767681",
+                "secondary-container": "#fc7728",
+                "surface-container": "#edeeef",
+                "on-surface-variant": "#454650",
+                "on-tertiary-fixed-variant": "#564500",
+                "on-tertiary-container": "#4d3e00",
+                "secondary-fixed": "#ffdbcb",
+                "background": "#f8f9fa",
+                "tertiary-container": "#cca800",
+                "on-secondary-fixed-variant": "#7a3000",
+                "surface-container-lowest": "#ffffff",
+                "primary-fixed": "#dde1ff",
+                "on-secondary-container": "#5d2300",
+                "on-primary-fixed-variant": "#36437d",
+                "on-secondary": "#ffffff",
+                "primary-container": "#1d2b64",
+                "on-secondary-fixed": "#341000",
+                "error-container": "#ffdad6",
+                "on-tertiary": "#ffffff",
+                "surface-container-high": "#e7e8e9",
+                "surface-container-low": "#f3f4f5",
+                "secondary-fixed-dim": "#ffb693",
+                "surface-variant": "#e1e3e4",
+                "on-tertiary-fixed": "#231b00",
+                "tertiary-fixed": "#ffe07c",
+                "on-surface": "#191c1d",
+                "surface-dim": "#d9dadb",
+                "on-primary-fixed": "#04154f",
+                "on-error-container": "#93000a",
+                "inverse-primary": "#b8c3ff",
+                "error": "#ba1a1a",
+                "on-background": "#191c1d"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+        },
+        "spacing": {
+                "container-max": "1280px",
+                "margin-mobile": "16px",
+                "margin-desktop": "40px",
+                "gutter": "24px",
+                "base": "8px"
+        },
+        "fontFamily": {
+                "headline-lg": [
+                        "\"Source Serif 4\""
+                ],
+                "body-md": [
+                        "\"Source Sans 3\""
+                ],
+                "body-lg": [
+                        "\"Source Sans 3\""
+                ],
+                "headline-md": [
+                        "\"Source Serif 4\""
+                ],
+                "headline-lg-mobile": [
+                        "\"Source Serif 4\""
+                ],
+                "label-md": [
+                        "\"Source Sans 3\""
+                ],
+                "display-lg": [
+                        "\"Source Serif 4\""
+                ]
+        },
+        "fontSize": {
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "28px",
+                        {
+                                "lineHeight": "36px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-md": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "display-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        body {
+            background-color: #f8f9fa; /* bg-surface */
+            color: #191c1d; /* text-on-surface */
+        }
+        
+        /* Utility for Material Icons */
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-body-md text-body-md text-on-surface bg-surface" data-mode="connect">
+<!-- TopNavBar -->
+<header class="w-full top-0 sticky z-50 bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline flat no shadows transition-all duration-200 ease-in-out">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex justify-between items-center h-20">
+<!-- Brand / Logo -->
+<div class="flex items-center gap-4">
+<img alt="MIT VGHS Logo" class="h-12 w-12 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUfnzM1ZFfxJ2IlHYTbBmVBmQsngn1gxtLGH1UT4ufygi5Ooyy0UZXfQ_j88eClzD6j24uEzbH01Egb_r-HvJXPELA9Hztu1wMyj9IeJzY8Wnyde0my2At2NS3XI_h3nWZyWVKLH-mPA_jRrHfecJVhrrdIYtELkx9bA_LDKk3eeD8YC_ah-ut8i0U_YiMfDQ5pW723cWm-CjdW1Q5T329NVFli0e9cWWpGC6pBHgCJ8PUHuGBOh73GwtngZBgGtYA6cMGd7_3ouk">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed hidden sm:block">MIT VGHS</span>
+</div>
+<!-- Navigation Links (Desktop) -->
+<nav aria-label="Main Navigation" class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md hover:text-secondary dark:hover:text-secondary-fixed-dim" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md hover:text-secondary dark:hover:text-secondary-fixed-dim" href="#">About</a>
+<a aria-current="page" class="text-secondary font-bold border-b-2 border-secondary pb-1 font-label-md text-label-md hover:text-secondary dark:hover:text-secondary-fixed-dim" href="#">Courses</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md hover:text-secondary dark:hover:text-secondary-fixed-dim" href="#">Admission</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md hover:text-secondary dark:hover:text-secondary-fixed-dim" href="#">Faculty</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md hover:text-secondary dark:hover:text-secondary-fixed-dim" href="#">Contact</a>
+</nav>
+<!-- Actions -->
+<div class="flex items-center gap-4">
+<button class="bg-secondary text-on-secondary px-6 py-2 rounded font-label-md text-label-md hover:bg-secondary-container transition-colors">Apply Now</button>
+<!-- Mobile Menu Toggle -->
+<button aria-label="Toggle Menu" class="md:hidden text-on-surface p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow pb-24">
+<!-- Hero Section -->
+<section class="bg-primary text-on-primary py-16 md:py-24 relative overflow-hidden">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10 flex flex-col items-center text-center">
+<h1 class="font-display-lg text-display-lg text-on-primary mb-4 md:mb-6 max-w-4xl">Courses&nbsp;<span style="letter-spacing: -0.02em;" class="">&amp; Academic Systems</span></h1>
+<div class="flex items-center gap-2 text-primary-fixed-dim font-label-md text-label-md">
+<a class="hover:text-on-primary transition-colors" href="#">Home</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="">Courses</span>
+</div>
+</div>
+</section>
+<!-- Search & Filter -->
+<section class="border-b border-outline-variant bg-surface">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="relative w-full md:w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-10 pr-4 py-2 border border-outline-variant rounded bg-surface-container-lowest focus:border-primary focus:border-2 focus:outline-none transition-all font-body-md text-body-md" placeholder="Search streams or subjects by keywords..." type="text">
+</div>
+<div class="flex bg-surface-container-low rounded p-1 w-full md:w-auto">
+<button class="flex-1 md:flex-none px-6 py-2 rounded bg-primary text-on-primary font-label-md text-label-md transition-colors">All Streams</button>
+<button class="flex-1 md:flex-none px-6 py-2 rounded text-on-surface-variant hover:bg-surface-container font-label-md text-label-md transition-colors">Science Stream</button>
+<button class="flex-1 md:flex-none px-6 py-2 rounded text-on-surface-variant hover:bg-surface-container font-label-md text-label-md transition-colors">Commerce Stream</button>
+</div>
+</div>
+</section>
+<!-- Program Overviews -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 md:py-16">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Science Program -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden flex flex-col hover:shadow-[0_4px_24px_rgba(3,20,79,0.08)] transition-shadow duration-300">
+<div class="bg-primary text-on-primary p-8 text-center flex flex-col items-center">
+<span class="material-symbols-outlined text-4xl mb-2">science</span>
+<div class="font-label-md text-label-md tracking-widest uppercase mb-1">Science</div>
+<h3 class="font-headline-md text-headline-md">[ SCIENCE STREAM ]</h3>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<h4 class="font-headline-md text-headline-md text-on-surface mb-4">Science Integrated Program</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow">A premium two-year academic curriculum offering integrated coaching for JEE, NEET, and MHT-CET alongside the standard HSC Board subjects (Physics, Chemistry, Mathematics, Biology).</p>
+<div class="flex justify-between items-center text-on-surface-variant font-label-md text-label-md mb-8">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">schedule</span>
+<span class="">2 Years</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary">group</span>
+<span class="">10th Pass (PCM / PCB)</span>
+</div>
+</div>
+<button class="w-full border-2 border-outline-variant text-primary px-6 py-3 rounded font-label-md text-label-md hover:border-primary hover:bg-primary/5 transition-colors">Admission Process</button>
+</div>
+</article>
+<!-- Commerce Program -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden flex flex-col hover:shadow-[0_4px_24px_rgba(3,20,79,0.08)] transition-shadow duration-300">
+<div class="bg-primary text-on-primary p-8 text-center flex flex-col items-center">
+<span class="material-symbols-outlined text-4xl mb-2">storefront</span>
+<div class="font-label-md text-label-md tracking-widest uppercase mb-1">Commerce</div>
+<h3 class="font-headline-md text-headline-md">[ COMMERCE STREAM ]</h3>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<h4 class="font-headline-md text-headline-md text-on-surface mb-4">Commerce Integrated Program</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow">A comprehensive two-year curriculum providing foundational training for Chartered Accountancy (CA Foundation) and Company Secretary (CS Foundation) alongside HSC Board Commerce curriculum.</p>
+<div class="flex justify-between items-center text-on-surface-variant font-label-md text-label-md mb-8">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">schedule</span>
+<span class="">2 Years</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary">group</span>
+<span class="">10th Pass</span>
+</div>
+</div>
+<button class="w-full border-2 border-outline-variant text-primary px-6 py-3 rounded font-label-md text-label-md hover:border-primary hover:bg-primary/5 transition-colors">Admission Process</button>
+</div>
+</article>
+</div>
+</section>
+<!-- Career Pathways -->
+<section class="bg-surface-container-low py-16 md:py-24">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center">
+<h2 class="font-display-lg text-display-lg text-primary mb-4">Career Pathways after 12th</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl mx-auto mb-12">Explore the academic opportunities and career choices open to our students after completing Class 12th.</p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+<!-- Science PCM -->
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 bg-primary/10 rounded flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">memory</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Science (PCM) Careers</h3>
+</div>
+<ul class="space-y-4 font-body-md text-body-md text-on-surface-variant">
+<li class=""><strong class="text-on-surface">Futuristic Engineering:</strong> Data Science, AI &amp; Machine Learning, Mechatronics, Bioengineering, Robotics, Nanotechnology.</li>
+<li class=""><strong class="text-on-surface">Core Engineering:</strong> Mechanical, Chemical, Civil, Metallurgical Engineering.</li>
+<li class=""><strong class="text-on-surface">Job-Ready IT:</strong> Computer Science, Electronics &amp; Communication, Electrical, Energy Engineering.</li>
+<li class=""><strong class="text-on-surface">Alternative Careers:</strong> Industrial Product Design, Architecture, Mathematics, Statistics, Commercial Pilot, Merchant Navy.</li>
+</ul>
+</div>
+<!-- Science PCB -->
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 bg-primary/10 rounded flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">biotech</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Science (PCB) Careers</h3>
+</div>
+<ul class="space-y-4 font-body-md text-body-md text-on-surface-variant">
+<li class=""><strong class="text-on-surface">Best Medical Courses:</strong> MBBS, BDS, BAMS, Bachelors in Pharmacy, BPT (Physiotherapy), BVSc &amp; AH (Veterinary Science), B. Optom (Optometry), Nursing, OTT (Vocational Training), MLT (Medical Laboratory).</li>
+<li class=""><strong class="text-on-surface">Medical Career Paths:</strong> Medical Doctor (MD), Dentist (DDS), Veterinarian, Pharmacist, Physician Assistant, Nurse Practitioner, Biomedical Engineer, Genetic Counselor.</li>
+<li class=""><strong class="text-on-surface">Non-Medical Biology Careers:</strong> Biotechnologist, Environmental Scientist, Bioinformatician, Geneticist, Agriculturist, Marine Biologist, Forensic Scientist, Food Scientist, Zoologist, Microbiologist.</li>
+</ul>
+</div>
+<!-- Commerce -->
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 bg-primary/10 rounded flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">trending_up</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Commerce Careers</h3>
+</div>
+<ul class="space-y-4 font-body-md text-body-md text-on-surface-variant">
+<li class=""><strong class="text-on-surface">Highest Salary Jobs:</strong> Investment Banker, Chartered Accountant (CA), Cost Management Accountant (CMA), Corporate Lawyer, Company Secretary (CS), Tax Auditor.</li>
+<li class=""><strong class="text-on-surface">CA Foundation Scope:</strong> Paper-1 Accounting, Paper-2 Business Laws, Paper-3 Math &amp; Statistics, Paper-4 Business Economics.</li>
+<li class=""><strong class="text-on-surface">CS Foundation Scope:</strong> Paper-1 Business Environment &amp; Law, Paper-2 Business Management &amp; Ethics, Paper-3 Economics, Paper-4 Accounting &amp; Auditing.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Competitive Exam Patterns -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16 md:py-24">
+<div class="text-center mb-12">
+<h2 class="font-display-lg text-display-lg text-primary mb-4">Competitive Exam Patterns</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl mx-auto">Official structural details of national level competitive exams mapped in our integrated programs.</p>
+</div>
+<div class="space-y-16">
+<!-- JEE Mains -->
+<div class="">
+<h3 class="font-headline-md text-headline-md text-tertiary flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined">school</span>
+                        JEE Mains Pattern (BE/B.Tech)
+                    </h3>
+<div class="overflow-x-auto rounded-lg border border-outline-variant shadow-sm">
+<table class="w-full text-left font-body-md text-body-md">
+<thead class="bg-primary text-on-primary">
+<tr>
+<th class="px-6 py-4 font-label-md text-label-md">Exam Parameter</th>
+<th class="px-6 py-4 font-label-md text-label-md">Details</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant bg-surface-container-lowest">
+<tr>
+<td class="px-6 py-4 font-semibold text-on-surface">Exam Mode</td>
+<td class="px-6 py-4 text-on-surface-variant">Online (Computer-Based Test)</td>
+</tr>
+<tr>
+<td class="px-6 py-4 font-semibold text-on-surface">Questions Type</td>
+<td class="px-6 py-4 text-on-surface-variant">Multiple Choice Questions (MCQs) &amp; Numerical Value Type</td>
+</tr>
+<tr>
+<td class="px-6 py-4 font-semibold text-on-surface">Total Questions</td>
+<td class="px-6 py-4 text-on-surface-variant">90 Questions (Only 75 need to be answered)</td>
+</tr>
+<tr>
+<td class="px-6 py-4 font-semibold text-on-surface">Total Marks</td>
+<td class="px-6 py-4 text-on-surface-variant">300 Marks</td>
+</tr>
+<tr>
+<td class="px-6 py-4 font-semibold text-on-surface">Exam Duration</td>
+<td class="px-6 py-4 text-on-surface-variant">3 Hours</td>
+</tr>
+<tr>
+<td class="px-6 py-4 font-semibold text-on-surface">Negative Marking</td>
+<td class="px-6 py-4 text-on-surface-variant">-1 for each wrong answer</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 class="font-label-md text-label-md text-primary mt-8 mb-4">JEE Subject &amp; Marks Distribution</h4>
+<div class="overflow-x-auto rounded-lg border border-outline-variant shadow-sm">
+<table class="w-full text-left font-body-md text-body-md">
+<thead class="bg-primary text-on-primary">
+<tr>
+<th class="px-6 py-4 font-label-md text-label-md">Subject</th>
+<th class="px-6 py-4 font-label-md text-label-md">Section A (MCQs)</th>
+<th class="px-6 py-4 font-label-md text-label-md">Section B (Numerical)</th>
+<th class="px-6 py-4 font-label-md text-label-md">Total Marks</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant bg-surface-container-lowest">
+<tr>
+<td class="px-6 py-4 font-semibold text-on-surface">Mathematics</td>
+<td class="px-6 py-4 text-on-surface-variant">20 Questions</td>
+<td class="px-6 py-4 text-on-surface-variant">10 Questions (Answer 5)</td>
+<td class="px-6 py-4 text-on-surface-variant">100 Marks</td>
+</tr>
+<tr>
+<td class="px-6 py-4 font-semibold text-on-surface">Physics</td>
+<td class="px-6 py-4 text-on-surface-variant">20 Questions</td>
+<td class="px-6 py-4 text-on-surface-variant">10 Questions (Answer 5)</td>
+<td class="px-6 py-4 text-on-surface-variant">100 Marks</td>
+</tr>
+<tr>
+<td class="px-6 py-4 font-semibold text-on-surface">Chemistry</td>
+<td class="px-6 py-4 text-on-surface-variant">20 Questions</td>
+<td class="px-6 py-4 text-on-surface-variant">10 Questions (Answer 5)</td>
+<td class="px-6 py-4 text-on-surface-variant">100 Marks</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- NEET -->
+<div>
+<h3 class="font-headline-md text-headline-md text-tertiary flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined">favorite</span>
+                        NEET Exam Pattern
+                    </h3>
+<div class="overflow-x-auto rounded-lg border border-outline-variant shadow-sm">
+<table class="w-full text-left font-body-md text-body-md">
+<thead class="bg-primary text-on-primary">
+<tr>
+<th class="px-6 py-4 font-label-md text-label-md">Exam Parameter</th>
+<th class="px-6 py-4 font-label-md text-label-md">Details</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant bg-surface-container-lowest">
+<tr>
+<td class="px-6 py-4 font-semibold text-on-surface">Exam Mode</td>
+<td class="px-6 py-4 text-on-surface-variant">Offline (Pen and Paper)</td>
+</tr>
+<tr>
+<td class="px-6 py-4 font-semibold text-on-surface">Questions Type</td>
+<td class="px-6 py-4 text-on-surface-variant">Multiple Choice Questions (MCQs)</td>
+</tr>
+<tr>
+<td class="px-6 py-4 font-semibold text-on-surface">Total Questions</td>
+<td class="px-6 py-4 text-on-surface-variant">200 Questions (Need to answer 180)</td>
+</tr>
+<tr>
+<td class="px-6 py-4 font-semibold text-on-surface">Total Marks</td>
+<td class="px-6 py-4 text-on-surface-variant">720 Marks</td>
+</tr>
+<tr>
+<td class="px-6 py-4 font-semibold text-on-surface">Exam Duration</td>
+<td class="px-6 py-4 text-on-surface-variant">3 Hours and 20 Minutes</td>
+</tr>
+<tr>
+<td class="px-6 py-4 font-semibold text-on-surface">Negative Marking</td>
+<td class="px-6 py-4 text-on-surface-variant">-1 for each wrong answer</td>
+</tr>
+<tr>
+<td class="px-6 py-4 font-semibold text-on-surface">Languages Available</td>
+<td class="px-6 py-4 text-on-surface-variant">English, Hindi, Marathi, Gujarati, Kannada, Tamil, Telugu, Urdu, and others.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 class="font-label-md text-label-md text-primary mt-8 mb-4">NEET Subject Breakdown</h4>
+<div class="overflow-x-auto rounded-lg border border-outline-variant shadow-sm">
+<table class="w-full text-left font-body-md text-body-md">
+<thead class="bg-primary text-on-primary">
+<tr>
+<th class="px-6 py-4 font-label-md text-label-md">Subject</th>
+<th class="px-6 py-4 font-label-md text-label-md">Section</th>
+<th class="px-6 py-4 font-label-md text-label-md">Total Questions</th>
+<th class="px-6 py-4 font-label-md text-label-md">Questions to Answer</th>
+<th class="px-6 py-4 font-label-md text-label-md">Total Marks</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant bg-surface-container-lowest">
+<!-- Physics -->
+<tr>
+<td class="px-6 py-4 font-semibold text-on-surface" rowspan="2">Physics</td>
+<td class="px-6 py-4 text-on-surface-variant">Section A</td>
+<td class="px-6 py-4 text-on-surface-variant">35 Questions</td>
+<td class="px-6 py-4 text-on-surface-variant">35 Questions</td>
+<td class="px-6 py-4 text-on-surface-variant">140 Marks</td>
+</tr>
+<tr>
+<td class="px-6 py-4 text-on-surface-variant">Section B</td>
+<td class="px-6 py-4 text-on-surface-variant">15 Questions</td>
+<td class="px-6 py-4 text-on-surface-variant">10 Questions</td>
+<td class="px-6 py-4 text-on-surface-variant">40 Marks</td>
+</tr>
+<!-- Chemistry -->
+<tr>
+<td class="px-6 py-4 font-semibold text-on-surface" rowspan="2">Chemistry</td>
+<td class="px-6 py-4 text-on-surface-variant">Section A</td>
+<td class="px-6 py-4 text-on-surface-variant">35 Questions</td>
+<td class="px-6 py-4 text-on-surface-variant">35 Questions</td>
+<td class="px-6 py-4 text-on-surface-variant">140 Marks</td>
+</tr>
+<tr>
+<td class="px-6 py-4 text-on-surface-variant">Section B</td>
+<td class="px-6 py-4 text-on-surface-variant">15 Questions</td>
+<td class="px-6 py-4 text-on-surface-variant">10 Questions</td>
+<td class="px-6 py-4 text-on-surface-variant">40 Marks</td>
+</tr>
+<!-- Botany -->
+<tr>
+<td class="px-6 py-4 font-semibold text-on-surface" rowspan="2">Botany</td>
+<td class="px-6 py-4 text-on-surface-variant">Section A</td>
+<td class="px-6 py-4 text-on-surface-variant">35 Questions</td>
+<td class="px-6 py-4 text-on-surface-variant">35 Questions</td>
+<td class="px-6 py-4 text-on-surface-variant">140 Marks</td>
+</tr>
+<tr>
+<td class="px-6 py-4 text-on-surface-variant">Section B</td>
+<td class="px-6 py-4 text-on-surface-variant">15 Questions</td>
+<td class="px-6 py-4 text-on-surface-variant">10 Questions</td>
+<td class="px-6 py-4 text-on-surface-variant">40 Marks</td>
+</tr>
+<!-- Zoology -->
+<tr>
+<td class="px-6 py-4 font-semibold text-on-surface" rowspan="2">Zoology</td>
+<td class="px-6 py-4 text-on-surface-variant">Section A</td>
+<td class="px-6 py-4 text-on-surface-variant">35 Questions</td>
+<td class="px-6 py-4 text-on-surface-variant">35 Questions</td>
+<td class="px-6 py-4 text-on-surface-variant">140 Marks</td>
+</tr>
+<tr>
+<td class="px-6 py-4 text-on-surface-variant">Section B</td>
+<td class="px-6 py-4 text-on-surface-variant">15 Questions</td>
+<td class="px-6 py-4 text-on-surface-variant">10 Questions</td>
+<td class="px-6 py-4 text-on-surface-variant">40 Marks</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- MHT CET -->
+<div>
+<h3 class="font-headline-md text-headline-md text-tertiary flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined">assignment</span>
+                        MHT CET Exam Pattern
+                    </h3>
+<div class="overflow-x-auto rounded-lg border border-outline-variant shadow-sm">
+<table class="w-full text-left font-body-md text-body-md">
+<thead class="bg-primary text-on-primary">
+<tr>
+<th class="px-6 py-4 font-label-md text-label-md">Parameter</th>
+<th class="px-6 py-4 font-label-md text-label-md">Details</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant bg-surface-container-lowest">
+<tr>
+<td class="px-6 py-4 font-semibold text-on-surface">Mode of Exam</td>
+<td class="px-6 py-4 text-on-surface-variant">Computer Based Test (CBT)</td>
+</tr>
+<tr>
+<td class="px-6 py-4 font-semibold text-on-surface">Duration</td>
+<td class="px-6 py-4 text-on-surface-variant">90 Minutes for each section</td>
+</tr>
+<tr>
+<td class="px-6 py-4 font-semibold text-on-surface">Conducted for</td>
+<td class="px-6 py-4 text-on-surface-variant">PCM (Physics, Chemistry, Mathematics) or PCB (Physics, Chemistry, Biology)</td>
+</tr>
+<tr>
+<td class="px-6 py-4 font-semibold text-on-surface">Total Marks</td>
+<td class="px-6 py-4 text-on-surface-variant">Each group 200 Marks</td>
+</tr>
+<tr>
+<td class="px-6 py-4 font-semibold text-on-surface">Questions</td>
+<td class="px-6 py-4 text-on-surface-variant">Multiple Choice Questions (MCQs), 50 questions per subject</td>
+</tr>
+<tr>
+<td class="px-6 py-4 font-semibold text-on-surface">Languages</td>
+<td class="px-6 py-4 text-on-surface-variant">Maths: English; Physics &amp; Chemistry: English / Urdu / Marathi</td>
+</tr>
+<tr>
+<td class="px-6 py-4 font-semibold text-on-surface">Marking Scheme</td>
+<td class="px-6 py-4 text-on-surface-variant">Physics, Chemistry &amp; Biology: 1 mark per correct answer. Mathematics: 2 marks per correct answer. No negative marking.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Commerce CA -->
+<div>
+<h3 class="font-headline-md text-headline-md text-tertiary flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined">book</span>
+                        Commerce - CA Foundation
+                    </h3>
+<div class="overflow-x-auto rounded-lg border border-outline-variant shadow-sm">
+<table class="w-full text-left font-body-md text-body-md">
+<thead class="bg-primary text-on-primary">
+<tr>
+<th class="px-6 py-4 font-label-md text-label-md">Parameter</th>
+<th class="px-6 py-4 font-label-md text-label-md">Details</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant bg-surface-container-lowest">
+<tr>
+<td class="px-6 py-4 font-semibold text-on-surface">Frequency</td>
+<td class="px-6 py-4 text-on-surface-variant">Twice a year (May/June &amp; November/December)</td>
+</tr>
+<tr>
+<td class="px-6 py-4 font-semibold text-on-surface">Level of Exam</td>
+<td class="px-6 py-4 text-on-surface-variant">National Level (Easy to Moderate Difficulty)</td>
+</tr>
+<tr>
+<td class="px-6 py-4 font-semibold text-on-surface">Question Papers</td>
+<td class="px-6 py-4 text-on-surface-variant">
+                                Four Papers (100 Marks each):<br>
+                                Paper 1: Principles and Practice of Accounting (Subjective, 3 hours)<br>
+                                Paper 2: Business Laws, Correspondence &amp; Reporting (Subjective, 3 hours)<br>
+                                Paper 3: Business Mathematics, Logical Reasoning &amp; Statistics (Objective, 2 hours)<br>
+                                Paper 4: Business Economics &amp; Commercial Knowledge (Objective, 2 hours)
+                            </td>
+</tr>
+<tr>
+<td class="px-6 py-4 font-semibold text-on-surface">Total Marks</td>
+<td class="px-6 py-4 text-on-surface-variant">400 Marks</td>
+</tr>
+<tr>
+<td class="px-6 py-4 font-semibold text-on-surface">Marking Scheme</td>
+<td class="px-6 py-4 text-on-surface-variant">Subjective (Paper 1 &amp; 2): No negative marking. Objective (Paper 3 &amp; 4): 1/4 mark deducted per wrong answer.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Commerce CS -->
+<div>
+<h3 class="font-headline-md text-headline-md text-tertiary flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined">gavel</span>
+                        Commerce - CS Foundation
+                    </h3>
+<div class="overflow-x-auto rounded-lg border border-outline-variant shadow-sm">
+<table class="w-full text-left font-body-md text-body-md">
+<thead class="bg-primary text-on-primary">
+<tr>
+<th class="px-6 py-4 font-label-md text-label-md">Parameter</th>
+<th class="px-6 py-4 font-label-md text-label-md">Details</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant bg-surface-container-lowest">
+<tr>
+<td class="px-6 py-4 font-semibold text-on-surface">Exam Mode &amp; Type</td>
+<td class="px-6 py-4 text-on-surface-variant">Computer-Based Test (CBT), Objective</td>
+</tr>
+<tr>
+<td class="px-6 py-4 font-semibold text-on-surface">Duration &amp; Papers</td>
+<td class="px-6 py-4 text-on-surface-variant">90 Minutes per paper. Four papers total.</td>
+</tr>
+<tr>
+<td class="px-6 py-4 font-semibold text-on-surface">Papers Outline</td>
+<td class="px-6 py-4 text-on-surface-variant">
+                                Paper 1: Business Environment and Law<br>
+                                Paper 2: Business Management, Ethics &amp; Entrepreneurship<br>
+                                Paper 3: Business Economics<br>
+                                Paper 4: Fundamentals of Accounting and Auditing
+                            </td>
+</tr>
+<tr>
+<td class="px-6 py-4 font-semibold text-on-surface">Questions &amp; Marks</td>
+<td class="px-6 py-4 text-on-surface-variant">50 Questions per paper. 100 Marks per paper (2 marks per correct answer).</td>
+</tr>
+<tr>
+<td class="px-6 py-4 font-semibold text-on-surface">Negative Marking</td>
+<td class="px-6 py-4 text-on-surface-variant">None</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<!-- Academic Planning Systems -->
+<section class="bg-surface-container-low py-16 md:py-24">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-12">
+<h2 class="font-display-lg text-display-lg text-primary mb-4">Our Academic Planning Systems</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl mx-auto">How we ensure students remain on target to secure top percentages and competitive selections.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant text-center flex flex-col items-center">
+<div class="w-16 h-16 bg-surface-container rounded-full flex items-center justify-center text-on-surface-variant mb-6">
+<span class="material-symbols-outlined text-2xl">calendar_month</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Chapterwise Macroplanning</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Before the term starts, a complete Chapterwise Macroplanning chart (e.g., Biology: 38 topics, 20 chapters) defines the exact sequence of chapters and lecture hours allocated to cover the entire board and entrance syllabus.</p>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant text-center flex flex-col items-center">
+<div class="w-16 h-16 bg-surface-container rounded-full flex items-center justify-center text-on-surface-variant mb-6">
+<span class="material-symbols-outlined text-2xl">schedule</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Daywise Microplanning</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Lectures follow a rigorous Daywise Microplanning chart. Each day specifies the precise topic, sub-topic taught, class work examples, and specific textbook exercises allocated for homework.</p>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant text-center flex flex-col items-center">
+<div class="w-16 h-16 bg-surface-container rounded-full flex items-center justify-center text-on-surface-variant mb-6">
+<span class="material-symbols-outlined text-2xl">assignment_turned_in</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Saturday Weekly Exams</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Continuous evaluation takes place through dedicated examinations on every Saturday. This ensures student preparedness for JEE/NEET/CET and CA/CS tests.</p>
+</div>
+</div>
+<!-- Digital Testing & Result Analytics -->
+<div class="bg-surface-container-lowest p-8 md:p-12 rounded-xl border border-outline-variant">
+<div class="flex items-center gap-4 mb-8">
+<span class="material-symbols-outlined text-3xl text-primary">analytics</span>
+<h3 class="font-headline-md text-headline-md text-primary">Digital Testing &amp; Result Analytics System</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">MIT Junior Colleges, Alandi implements a multi-format Testing System matching the mode of competitive exams:</p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="">
+<h4 class="font-label-md text-label-md text-on-surface mb-2">Offline Exams (OMR)</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Pen paper exams are completed using standard JEE/NEET OMR answer sheets. Sheets are checked by OMR software to prevent manual errors.</p>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface mb-2">Online Exams (CBT)</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Computer-based practice exams are hosted on our dedicated exam portal (powered by Edutech), recreating the exact interface of JEE and CET.</p>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface mb-2">Detailed Result Analysis</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Students get unitwise score percentages, percentile rankings, question-wise time management reports, and results are emailed directly to parents.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-auto bg-inverse-surface dark:bg-surface-container-lowest text-on-secondary-fixed dark:text-primary font-label-md text-label-md flat no shadows transition-opacity duration-200">
+<div class="max-w-container-max mx-auto px-margin-desktop py-12 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col items-center md:items-start gap-4">
+<div class="font-headline-md text-headline-md text-primary-fixed">MIT VGHS</div>
+<p class="text-surface-variant opacity-80 text-center md:text-left">© 2026 MIT VGHS. All rights reserved.</p>
+</div>
+<nav aria-label="Footer Navigation" class="flex flex-wrap justify-center md:justify-end gap-6">
+<a class="text-surface-variant opacity-80 hover:opacity-100 hover:text-secondary-fixed transition-opacity duration-200" href="#">Credits</a>
+<a class="text-surface-variant opacity-80 hover:opacity-100 hover:text-secondary-fixed transition-opacity duration-200" href="#">Privacy Policy</a>
+<a class="text-surface-variant opacity-80 hover:opacity-100 hover:text-secondary-fixed transition-opacity duration-200" href="#">Terms of Service</a>
+</nav>
+</div>
+</footer>
+
+
+</body></html>

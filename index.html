@@ -1,0 +1,422 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&amp;family=Source+Serif+4:wght@600;700&amp;display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">try{
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-on-surface": "#f0f1f2",
+                      "tertiary-fixed-dim": "#ecc200",
+                      "surface-tint": "#4e5b96",
+                      "primary-fixed-dim": "#b8c3ff",
+                      "secondary": "#a04100",
+                      "inverse-surface": "#2e3132",
+                      "on-primary": "#ffffff",
+                      "surface-bright": "#f8f9fa",
+                      "outline-variant": "#c6c5d1",
+                      "surface-container-highest": "#e1e3e4",
+                      "primary": "#03144f",
+                      "tertiary": "#725c00",
+                      "on-error": "#ffffff",
+                      "surface": "#f8f9fa",
+                      "on-primary-container": "#8794d4",
+                      "outline": "#767681",
+                      "secondary-container": "#fc7728",
+                      "surface-container": "#edeeef",
+                      "on-surface-variant": "#454650",
+                      "on-tertiary-fixed-variant": "#564500",
+                      "on-tertiary-container": "#4d3e00",
+                      "secondary-fixed": "#ffdbcb",
+                      "background": "#f8f9fa",
+                      "tertiary-container": "#cca800",
+                      "on-secondary-fixed-variant": "#7a3000",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-fixed": "#dde1ff",
+                      "on-secondary-container": "#5d2300",
+                      "on-primary-fixed-variant": "#36437d",
+                      "on-secondary": "#ffffff",
+                      "primary-container": "#1d2b64",
+                      "on-secondary-fixed": "#341000",
+                      "error-container": "#ffdad6",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-high": "#e7e8e9",
+                      "surface-container-low": "#f3f4f5",
+                      "secondary-fixed-dim": "#ffb693",
+                      "surface-variant": "#e1e3e4",
+                      "on-tertiary-fixed": "#231b00",
+                      "tertiary-fixed": "#ffe07c",
+                      "on-surface": "#191c1d",
+                      "surface-dim": "#d9dadb",
+                      "on-primary-fixed": "#04154f",
+                      "on-error-container": "#93000a",
+                      "inverse-primary": "#b8c3ff",
+                      "error": "#ba1a1a",
+                      "on-background": "#191c1d"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "container-max": "1280px",
+                      "margin-mobile": "16px",
+                      "margin-desktop": "40px",
+                      "gutter": "24px",
+                      "base": "8px"
+              },
+              "fontFamily": {
+                      "headline-lg": [
+                              "\"Source Serif 4\""
+                      ],
+                      "body-md": [
+                              "\"Source Sans 3\""
+                      ],
+                      "body-lg": [
+                              "\"Source Sans 3\""
+                      ],
+                      "headline-md": [
+                              "\"Source Serif 4\""
+                      ],
+                      "headline-lg-mobile": [
+                              "\"Source Serif 4\""
+                      ],
+                      "label-md": [
+                              "\"Source Sans 3\""
+                      ],
+                      "display-lg": [
+                              "\"Source Serif 4\""
+                      ]
+              },
+              "fontSize": {
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      }catch(_e){}</script></head><body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col" data-mode="connect">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-inverse-surface w-full top-0 sticky z-50 border-b border-outline-variant dark:border-outline flat no shadows transition-all duration-200 ease-in-out">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex justify-between items-center h-20">
+<div class="flex items-center gap-4">
+<img alt="MIT VGHS Logo" class="h-12 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUfnzM1ZFfxJ2IlHYTbBmVBmQsngn1gxtLGH1UT4ufygi5Ooyy0UZXfQ_j88eClzD6j24uEzbH01Egb_r-HvJXPELA9Hztu1wMyj9IeJzY8Wnyde0my2At2NS3XI_h3nWZyWVKLH-mPA_jRrHfecJVhrrdIYtELkx9bA_LDKk3eeD8YC_ah-ut8i0U_YiMfDQ5pW723cWm-CjdW1Q5T329NVFli0e9cWWpGC6pBHgCJ8PUHuGBOh73GwtngZBgGtYA6cMGd7_3ouk">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed hidden md:block">MIT VGHS</span>
+</div>
+<nav class="hidden md:flex gap-8 items-center h-full">
+<a class="text-secondary font-bold border-b-2 border-secondary pb-1 flex items-center h-full hover:text-secondary dark:hover:text-secondary-fixed-dim" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors flex items-center h-full hover:text-secondary dark:hover:text-secondary-fixed-dim" href="#">About Us</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors flex items-center h-full hover:text-secondary dark:hover:text-secondary-fixed-dim" href="#">Courses</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors flex items-center h-full hover:text-secondary dark:hover:text-secondary-fixed-dim" href="#">Admissions</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors flex items-center h-full hover:text-secondary dark:hover:text-secondary-fixed-dim" href="#">Faculty</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors flex items-center h-full hover:text-secondary dark:hover:text-secondary-fixed-dim" href="#">Contact</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="bg-secondary text-on-secondary px-6 py-2 rounded font-label-md text-label-md hover:bg-secondary-container transition-colors shadow-sm">
+                    Apply Now
+                </button>
+</div>
+</div>
+</header>
+<main class="flex-grow flex flex-col">
+<!-- Hero Section -->
+<section class="relative w-full pt-20 pb-40 flex items-center justify-center bg-primary overflow-hidden"><img alt="MIT Campus Hero" class="absolute inset-0 w-full h-full object-cover opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDffWp2_fV8PeSLq7Z5v7RxHaxrREgEYJvJH9IpkgvYuFvK9hKIKKt6dTjlv5T2823p1kd7wZSlHxtZvLVOMZ5xle3W2efhOrV5XUg3Dk_v-EY1NA3jXdWv6hPRD_HxQk5bP5I85FKCcdEgGF_ecfm0WgakcsN4-t6qmTiaPtuKNEjau1J_AxCdQDFYatR1FswPOvcDCAA28humd7yr12V9p1y5hsgHe7Wzd9_Hql0XLJKPQZYxGFG-i_KmK5TGN9CyNRTTGI2Tab4">
+<div class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center md:text-left flex flex-col items-start gap-6 w-full items-center md:items-start">
+<div class="text-tertiary-fixed font-label-md tracking-wider uppercase">
+        MAEER'S MIT GROUP | EDUCATION LEGACY OF MORE THAN 40 YEARS
+    </div>
+
+<p class="font-body-lg text-body-lg text-primary-fixed-dim max-w-3xl">
+        Admissions Open for 11th &amp; 12th Science &amp; Commerce. We offer premier integrated programs for JEE, NEET, MHT-CET, CA, and CS Foundation alongside the HSC board curriculum. Join us to transform your potential into academic success.
+    </p>
+<div class="flex flex-col sm:flex-row gap-4 pt-4">
+<button class="bg-secondary text-on-secondary px-8 py-3 rounded font-label-md text-label-md hover:bg-secondary-container transition-colors shadow-sm flex items-center justify-center gap-2">
+            Enroll Today <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<button class="border border-outline-variant text-on-primary px-8 py-3 rounded font-label-md text-label-md hover:bg-on-primary/10 transition-colors flex items-center justify-center gap-2">
+            Explore Campus
+        </button>
+</div>
+</div>
+</section>
+<!-- Stats Grid Overlay -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full -mt-20 relative z-20">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+<div class="bg-primary-container text-on-primary rounded-xl p-6 text-center shadow-lg border border-outline-variant/20">
+<span class="material-symbols-outlined text-tertiary-fixed text-[32px] mb-2">history_edu</span>
+<h3 class="font-headline-lg text-headline-lg mb-1">42+</h3>
+<p class="font-label-md text-primary-fixed-dim uppercase tracking-wider text-[12px]">Years<br>Education Legacy</p>
+</div>
+<div class="bg-primary-container text-on-primary rounded-xl p-6 text-center shadow-lg border border-outline-variant/20">
+<span class="material-symbols-outlined text-tertiary-fixed text-[32px] mb-2">account_balance</span>
+<h3 class="font-headline-lg text-headline-lg mb-1">72+</h3>
+<p class="font-label-md text-primary-fixed-dim uppercase tracking-wider text-[12px]">Institutions</p>
+</div>
+<div class="bg-primary-container text-on-primary rounded-xl p-6 text-center shadow-lg border border-outline-variant/20">
+<span class="material-symbols-outlined text-tertiary-fixed text-[32px] mb-2">groups</span>
+<h3 class="font-headline-lg text-headline-lg mb-1">70,000+</h3>
+<p class="font-label-md text-primary-fixed-dim uppercase tracking-wider text-[12px]">Students Group-Wide</p>
+</div>
+<div class="bg-primary-container text-on-primary rounded-xl p-6 text-center shadow-lg border border-outline-variant/20">
+<span class="material-symbols-outlined text-tertiary-fixed text-[32px] mb-2">public</span>
+<h3 class="font-headline-lg text-headline-lg mb-1">200,000+</h3>
+<p class="font-label-md text-primary-fixed-dim uppercase tracking-wider text-[12px]">Global Alumni</p>
+</div>
+</div>
+</section>
+<!-- Why Choose Section -->
+<section class="py-24 bg-surface max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full">
+<div class="text-center mb-16 space-y-4">
+<h2 class="font-headline-lg text-headline-lg text-primary">Why Choose MIT Junior Colleges?</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">Learn about the salient features that drive our academic legacy forward.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter sm:grid-cols-2">
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-6 flex gap-4 hover:shadow-md transition-shadow">
+<div class="mt-1"><span class="material-symbols-outlined text-primary">check_circle</span></div>
+<div>
+<h3 class="font-label-md text-on-surface mb-1">Excellent Results</h3>
+<p class="font-body-md text-[14px] text-on-surface-variant leading-relaxed">Consistent high scores and selections in national competitive examinations like JEE, NEET &amp; MHT-CET.</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-6 flex gap-4 hover:shadow-md transition-shadow">
+<div class="mt-1"><span class="material-symbols-outlined text-primary">verified</span></div>
+<div>
+<h3 class="font-label-md text-on-surface mb-1">100% Board Results</h3>
+<p class="font-body-md text-[14px] text-on-surface-variant leading-relaxed">Outstanding record of 100% HSC board results across all streams year after year.</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-6 flex gap-4 hover:shadow-md transition-shadow">
+<div class="mt-1"><span class="material-symbols-outlined text-primary">school</span></div>
+<div>
+<h3 class="font-label-md text-on-surface mb-1">Qualified Faculty</h3>
+<p class="font-body-md text-[14px] text-on-surface-variant leading-relaxed">Experienced and highly qualified teachers offering specialized guidance and mentorship.</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-6 flex gap-4 hover:shadow-md transition-shadow">
+<div class="mt-1"><span class="material-symbols-outlined text-primary">forum</span></div>
+<div>
+<h3 class="font-label-md text-on-surface mb-1">Doubt Lectures</h3>
+<p class="font-body-md text-[14px] text-on-surface-variant leading-relaxed">Weekly chapter-wise tests and dedicated doubt-clearing sessions to reinforce learning.</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-6 flex gap-4 hover:shadow-md transition-shadow">
+<div class="mt-1"><span class="material-symbols-outlined text-primary">computer</span></div>
+<div>
+<h3 class="font-label-md text-on-surface mb-1">Testing Platform</h3>
+<p class="font-body-md text-[14px] text-on-surface-variant leading-relaxed">Online and offline testing modules with detailed question-wise result analysis for each student.</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-6 flex gap-4 hover:shadow-md transition-shadow">
+<div class="mt-1"><span class="material-symbols-outlined text-primary">menu_book</span></div>
+<div>
+<h3 class="font-label-md text-on-surface mb-1">Custom Study Material</h3>
+<p class="font-body-md text-[14px] text-on-surface-variant leading-relaxed">In-house designed, comprehensive study materials tailored for entrance and board preparations.</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-6 flex gap-4 hover:shadow-md transition-shadow">
+<div class="mt-1"><span class="material-symbols-outlined text-primary">record_voice_over</span></div>
+<div>
+<h3 class="font-label-md text-on-surface mb-1">Eminent Guest Lectures</h3>
+<p class="font-body-md text-[14px] text-on-surface-variant leading-relaxed">Regular interactive sessions and guest lectures conducted by subject matter experts.</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-6 flex gap-4 hover:shadow-md transition-shadow">
+<div class="mt-1"><span class="material-symbols-outlined text-primary">explore</span></div>
+<div>
+<h3 class="font-label-md text-on-surface mb-1">Career Counselling</h3>
+<p class="font-body-md text-[14px] text-on-surface-variant leading-relaxed">Dedicated professional career counselling to guide students towards optimal future streams.</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-6 flex gap-4 hover:shadow-md transition-shadow">
+<div class="mt-1"><span class="material-symbols-outlined text-primary">build</span></div>
+<div>
+<h3 class="font-label-md text-on-surface mb-1">Skill Workshops</h3>
+<p class="font-body-md text-[14px] text-on-surface-variant leading-relaxed">Skill development workshops in Tally software, Website design, Photoshop, E-commerce, etc.</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-6 flex gap-4 hover:shadow-md transition-shadow">
+<div class="mt-1"><span class="material-symbols-outlined text-primary">directions_bus</span></div>
+<div>
+<h3 class="font-label-md text-on-surface mb-1">Educational Tours</h3>
+<p class="font-body-md text-[14px] text-on-surface-variant leading-relaxed">Organized outdoor educational trips and industrial site visits for practical learning exposure.</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-6 flex gap-4 hover:shadow-md transition-shadow">
+<div class="mt-1"><span class="material-symbols-outlined text-primary">celebration</span></div>
+<div>
+<h3 class="font-label-md text-on-surface mb-1">Inter-MIT Events</h3>
+<p class="font-body-md text-[14px] text-on-surface-variant leading-relaxed">Dynamic inter-institutional competitions and joint cultural/sports events group-wide.</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-6 flex gap-4 hover:shadow-md transition-shadow">
+<div class="mt-1"><span class="material-symbols-outlined text-primary">family_restroom</span></div>
+<div>
+<h3 class="font-label-md text-on-surface mb-1">Parent-Teacher Meetings</h3>
+<p class="font-body-md text-[14px] text-on-surface-variant leading-relaxed">Regular structured meetings (PTM) to share feedback and align parent-student support.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Streams & Programs -->
+<section class="py-24 bg-surface-container-low max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full">
+<div class="text-center mb-16 space-y-4">
+<h2 class="font-headline-lg text-headline-lg text-primary">Our Streams &amp; Integrated Programs</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">Choose from our specialized streams combining standard board education with competitive coaching.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden flex flex-col h-full hover:shadow-lg transition-shadow">
+<div class="bg-primary p-8 text-center flex flex-col items-center justify-center min-h-[160px]">
+<span class="material-symbols-outlined text-tertiary-fixed text-[32px] mb-3">science</span>
+<h3 class="font-label-md text-on-primary tracking-widest uppercase mb-2">[ SCIENCE STREAM ]</h3>
+<p class="text-primary-fixed-dim text-[12px]">JEE / NEET / MHT-CET + HSC</p>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<span class="bg-primary-fixed/30 text-primary px-3 py-1 rounded-full text-[12px] font-bold w-fit mb-4">SCIENCE</span>
+<h4 class="font-headline-md text-primary mb-3">Integrated Science Program</h4>
+<p class="font-body-md text-on-surface-variant mb-6 flex-grow">A rigorous program for students aiming for premium engineering and medical careers, combining standard HSC Board curriculum with integrated entrance coaching.</p>
+<a class="flex items-center text-primary font-label-md text-label-md hover:text-secondary transition-colors mt-auto" href="#">
+        Explore Science Details <span class="material-symbols-outlined ml-1 text-[18px]">arrow_outward</span>
+</a>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden flex flex-col h-full hover:shadow-lg transition-shadow">
+<div class="bg-primary p-8 text-center flex flex-col items-center justify-center min-h-[160px]">
+<span class="material-symbols-outlined text-tertiary-fixed text-[32px] mb-3">calculate</span>
+<h3 class="font-label-md text-on-primary tracking-widest uppercase mb-2">[ COMMERCE STREAM ]</h3>
+<p class="text-primary-fixed-dim text-[12px]">CA &amp; CS Foundation + HSC</p>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<span class="bg-primary-fixed/30 text-primary px-3 py-1 rounded-full text-[12px] font-bold w-fit mb-4">COMMERCE</span>
+<h4 class="font-headline-md text-primary mb-3">Integrated Commerce Program</h4>
+<p class="font-body-md text-on-surface-variant mb-6 flex-grow">Designed to build fundamental concepts in corporate accounting, business laws, and economics, qualifying students for CA and CS Foundation exams.</p>
+<a class="flex items-center text-primary font-label-md text-label-md hover:text-secondary transition-colors mt-auto" href="#">
+        Explore Commerce Details <span class="material-symbols-outlined ml-1 text-[18px]">arrow_outward</span>
+</a>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden flex flex-col h-full hover:shadow-lg transition-shadow">
+<div class="bg-primary p-8 text-center flex flex-col items-center justify-center min-h-[160px]">
+<span class="material-symbols-outlined text-tertiary-fixed text-[32px] mb-3">workspace_premium</span>
+<h3 class="font-label-md text-on-primary tracking-widest uppercase mb-2">[ SCHOLARSHIPS ]</h3>
+<p class="text-primary-fixed-dim text-[12px]">Upto 100% Tuition Waiver</p>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<span class="bg-primary-fixed/30 text-primary px-3 py-1 rounded-full text-[12px] font-bold w-fit mb-4">SUPPORT</span>
+<h4 class="font-headline-md text-primary mb-3">Merit-Based Scholarships</h4>
+<p class="font-body-md text-on-surface-variant mb-6 flex-grow">We are dedicated to rewarding outstanding scholastic talent. Eligible students can secure up to 100% scholarships based on board exam scores and entrance trials.</p>
+<a class="flex items-center text-primary font-label-md text-label-md hover:text-secondary transition-colors mt-auto" href="#">
+        View Scholarship Scheme <span class="material-symbols-outlined ml-1 text-[18px]">arrow_outward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Sparkling Stars -->
+
+<!-- Campus Facilities -->
+<section class="py-24 bg-surface-container-low max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full">
+<div class="text-center mb-16 space-y-4">
+<h2 class="font-headline-lg text-headline-lg text-primary">Campus Facilities</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">Live, study, and thrive inside a modern ecosystem built for optimal academic and personal growth.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="bg-primary rounded-xl overflow-hidden text-center h-[280px] flex flex-col items-center justify-center p-6 text-on-primary hover:shadow-lg transition-all hover:-translate-y-1 relative"><img alt="Campus Building" class="absolute inset-0 w-full h-full object-cover opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDffWp2_fV8PeSLq7Z5v7RxHaxrREgEYJvJH9IpkgvYuFvK9hKIKKt6dTjlv5T2823p1kd7wZSlHxtZvLVOMZ5xle3W2efhOrV5XUg3Dk_v-EY1NA3jXdWv6hPRD_HxQk5bP5I85FKCcdEgGF_ecfm0WgakcsN4-t6qmTiaPtuKNEjau1J_AxCdQDFYatR1FswPOvcDCAA28humd7yr12V9p1y5hsgHe7Wzd9_Hql0XLJKPQZYxGFG-i_KmK5TGN9CyNRTTGI2Tab4"><div class="relative z-10 flex flex-col items-center"><span class="material-symbols-outlined text-[40px] mb-4">domain</span><h3 class="font-label-md text-[16px] uppercase tracking-widest mb-3">[ CAMPUS BUILDING ]</h3><p class="text-[14px] text-primary-fixed-dim">Main Campus Structure, Alandi (D) Opp. Gajanan Maharaj Temple.</p></div></div>
+<div class="bg-primary rounded-xl overflow-hidden text-center h-[280px] flex flex-col items-center justify-center p-6 text-on-primary hover:shadow-lg transition-all hover:-translate-y-1 relative"><img alt="Computer Lab" class="absolute inset-0 w-full h-full object-cover opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaGb3Rjwi-Z7dPB8_Rd_uGOK56RSoak9Rrh_g-eDyMceklHq-nc5CheCcZI7tmF9UWHIuH8C_CTTQEkpO4gi3AGz0BupglMBcflgRrIkKnu4cEqemN4oT1CbXCli8bwPtNAIYU8xfhfkLkAJ406myEEBHdTfg9NAzVdmHWYJMIfPUjt6bRfUQuJBGmYbTPtRhxVyA8VAP_uTG0oYfTqmgv-6CGbYdh0GRWGacs6vLEYac4cSoo5fGq0W3P9dhHpNPnckUv1-AZ83c"><div class="relative z-10 flex flex-col items-center"><span class="material-symbols-outlined text-[32px] mb-4">devices</span><h3 class="font-label-md text-[14px] uppercase tracking-widest mb-3">[ COMPUTER LAB ]</h3><p class="text-[12px] text-primary-fixed-dim">Equipped with workstations for software training and online exam testing.</p></div></div>
+<div class="bg-primary rounded-xl overflow-hidden text-center h-[280px] flex flex-col items-center justify-center p-6 text-on-primary hover:shadow-lg transition-all hover:-translate-y-1 relative"><img alt="Chemistry Lab" class="absolute inset-0 w-full h-full object-cover opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC89amXyqygotxFC8eafg5iirK4G2X3zANUHDq_hmAqDdywkwYKpzsalkaROnSE-B_k4DIGLtYk7SW8ftFyFY98CD17ALSX2T-tQWLukBCkcaaQgwcEzv5xkPITVPKNAVOlo9AJ-orFEIKAZl_dYM59r_AiHwLnI5PoZN39Hq42LAdwLBqyLlGL4POfRg7ogKz8GFCma0g2wiIC03kCSvxIFb1qNarmXYgLrkoyYLV4BQWHnwuMtJGKbctHLu-z4fivEmEJUUYGGMY"><div class="relative z-10 flex flex-col items-center"><span class="material-symbols-outlined text-[32px] mb-4">biotech</span><h3 class="font-label-md text-[14px] uppercase tracking-widest mb-3">[ CHEMISTRY &amp; SCIENCE LAB ]</h3><p class="text-[12px] text-primary-fixed-dim">Fully-equipped practical units for physics, chemistry, and biology experiments.</p></div></div>
+<div class="bg-primary rounded-xl overflow-hidden text-center h-[280px] flex flex-col items-center justify-center p-6 text-on-primary hover:shadow-lg transition-all hover:-translate-y-1 relative"><img alt="Sports" class="absolute inset-0 w-full h-full object-cover opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFUj5psbAJ2msqyUm4dX2C74IvofkSag1FMjBSDyYIqLl4Kzo6aqmp-kfmXYUV8CD454i0LvZO7XAkvTdFZmeL51zgznI1dFC9gUjpRHDWXymGSXQX94Nhl4XUpiiGl39X1F7n11-waMTKE6rsdRaExmTIfzkqANBx5C0G3M9JdeFf7c7oKh-6fSv5q-ez16FUhQDh1PSIcABnPs5mLL9rzwBBBwlmz9-2jZhxuzu9e7o78bu07DKA-JylmzVQHNWHsw9pPI-8puI"><div class="relative z-10 flex flex-col items-center"><span class="material-symbols-outlined text-[32px] mb-4">sports_tennis</span><h3 class="font-label-md text-[14px] uppercase tracking-widest mb-3">[ SPORTS &amp; GYMNASIUM ]</h3><p class="text-[12px] text-primary-fixed-dim">Chess, table tennis, basketball courts, and weight training facilities.</p></div></div>
+</div>
+</section>
+<!-- Campus Life Gallery -->
+<section class="py-24 bg-surface max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full">
+<div class="text-center mb-16 space-y-4">
+<h2 class="font-headline-lg text-headline-lg text-primary">Campus Life Gallery</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">Catch a glimpse of the vibrancy, student activities, and achievements taking place daily at MIT Alandi.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter h-auto md:h-[500px] sm:grid-cols-2">
+<div class="bg-primary rounded-xl overflow-hidden flex flex-col items-center justify-center p-8 text-on-primary text-center h-[300px] md:h-full relative"><img alt="Campus Building" class="absolute inset-0 w-full h-full object-cover opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDffWp2_fV8PeSLq7Z5v7RxHaxrREgEYJvJH9IpkgvYuFvK9hKIKKt6dTjlv5T2823p1kd7wZSlHxtZvLVOMZ5xle3W2efhOrV5XUg3Dk_v-EY1NA3jXdWv6hPRD_HxQk5bP5I85FKCcdEgGF_ecfm0WgakcsN4-t6qmTiaPtuKNEjau1J_AxCdQDFYatR1FswPOvcDCAA28humd7yr12V9p1y5hsgHe7Wzd9_Hql0XLJKPQZYxGFG-i_KmK5TGN9CyNRTTGI2Tab4"><div class="relative z-10 flex flex-col items-center"><span class="material-symbols-outlined text-[40px] mb-4">domain</span><h3 class="font-label-md text-[16px] uppercase tracking-widest mb-3">[ CAMPUS BUILDING ]</h3><p class="text-[14px] text-primary-fixed-dim">Main Campus Structure, Alandi (D) Opp. Gajanan Maharaj Temple.</p></div></div>
+<div class="grid grid-rows-3 gap-gutter h-full md:h-full">
+<div class="grid grid-cols-2 gap-gutter row-span-2">
+<div class="bg-primary rounded-xl overflow-hidden flex flex-col items-center justify-center p-6 text-on-primary text-center h-[200px] md:h-auto relative"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAq5R-_AWlDXdaihhQQXDimAfhVhRe3Kf8l_p0L4Nort0nFFTiNlGWA7f96Az9MkSn0DDemKb5PNTIaO7bIK0uOP_9nxXZU3Wqt6JymRYTSJ-Dwj4ZfExagI5Yyss8jiYRJjx4Ux7AU_RasQFOAiJC9BT3GZcq617wnJCrFzEqxbKW8yUbm7_oJ_xqhdVrz9dMHOf4gGy2v0LbGqW67D6T8sbkKKoCDOFwy6B2Ofd03AO5vhk3u-pybe5LO_SrRy8DTHMHMSCjWOXM" alt="Educational Trips" class="absolute inset-0 w-full h-full object-cover opacity-40"><div class="relative z-10 flex flex-col items-center"><span class="material-symbols-outlined text-[32px] mb-4">emoji_transportation</span><h3 class="font-label-md text-[14px] uppercase tracking-widest mb-3">[ EDUCATIONAL TRIPS ]</h3><p class="text-[12px] text-primary-fixed-dim">Outdoor educational tours and visits</p></div></div>
+<div class="bg-primary rounded-xl overflow-hidden flex flex-col items-center justify-center p-6 text-on-primary text-center h-[200px] md:h-auto relative"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzWZusYSoHGlxZ2WMtVkkfRDOlTmgXh39KhgeMg1ewChmeODzMrdHSs_mwajAER1wMXSMXFjwGbYHiXgB_5u6roT2U-8r_6DEO87PLG9vALYT3Mwmj1LvALNPMKur2bTOE5CGEICLrz8lT_M5D4rZoM9tRBQiHdui4_29luyiQP_tR0UH3FkTyaFBJYNItA07TvLD5f2Q1HpM5oFeQGG4zFuiJrEsIdHmbtALoOS5hDIn8X7G1AzivPtks04cN5zeaYQj7xpZGFSw" alt="Achievers Day" class="absolute inset-0 w-full h-full object-cover opacity-40"><div class="relative z-10 flex flex-col items-center"><span class="material-symbols-outlined text-[32px] mb-4">emoji_events</span><h3 class="font-label-md text-[14px] uppercase tracking-widest mb-3">[ ACHIEVERS DAY ]</h3><p class="text-[12px] text-primary-fixed-dim">Awards distribution and ceremony</p></div></div>
+</div>
+<div class="bg-primary rounded-xl overflow-hidden flex flex-col items-center justify-center p-6 text-on-primary text-center h-[200px] md:h-auto row-span-1 relative"><img alt="PTM" class="absolute inset-0 w-full h-full object-cover opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9h5ncLMcAqOV1uevvDwkoy7-gPcWbSdPsMY2s8Ag8mJv1lk54qvi7mN5qcwbY3LemGVDEHyneC_rtEo0Ga9AzQMLf2FpXM_NG8KBNiVdb3TEI6Y35HmGmQJb4JbvWuiXzDDSh91n3FZmccg-SU5MtCDtQSPZKLjWJ9m1-4J8162-A9v7RdI4dcFnrTD2iLWPyPx3hKp56qpIuTmudrINyJPeMvHBgYpJwQk8gQnknZTsVqbfQZqPblSmTkck3wygmH9RMzikqlYQ"><div class="relative z-10 flex flex-col items-center"><span class="material-symbols-outlined text-[32px] mb-4">family_restroom</span><h3 class="font-label-md text-[14px] uppercase tracking-widest mb-3">[ PARENT-TEACHER MEETINGS ]</h3><p class="text-[12px] text-primary-fixed-dim">Regular structured meetings to align parent-student support.</p></div></div>
+</div>
+</div>
+</section>
+<!-- Important Announcements -->
+
+</main>
+<!-- Footer -->
+<footer class="bg-inverse-surface dark:bg-surface-container-lowest w-full mt-auto">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex flex-col items-center md:items-start gap-4">
+<span class="font-headline-md text-headline-md text-primary-fixed flex items-center gap-3">
+<img alt="MIT VGHS Logo Small" class="h-8 w-auto brightness-0 invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUfnzM1ZFfxJ2IlHYTbBmVBmQsngn1gxtLGH1UT4ufygi5Ooyy0UZXfQ_j88eClzD6j24uEzbH01Egb_r-HvJXPELA9Hztu1wMyj9IeJzY8Wnyde0my2At2NS3XI_h3nWZyWVKLH-mPA_jRrHfecJVhrrdIYtELkx9bA_LDKk3eeD8YC_ah-ut8i0U_YiMfDQ5pW723cWm-CjdW1Q5T329NVFli0e9cWWpGC6pBHgCJ8PUHuGBOh73GwtngZBgGtYA6cMGd7_3ouk">
+                    MIT VGHS
+                </span>
+<p class="font-label-md text-label-md text-on-secondary-fixed dark:text-primary">
+                    © 2026 MIT VGHS. All rights reserved.
+                </p>
+</div>
+</div></footer>
+
+
+
+
+
+
+
+
+
+
+
+</body></html>
