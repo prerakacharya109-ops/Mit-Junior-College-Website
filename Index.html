@@ -1,0 +1,1673 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIT Junior College & VGS - Integrated Educational Portal</title>
+    
+    <!-- Material Symbols & Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface": "#f8fafc",
+                        "inverse-surface": "#1e293b",
+                        "on-background": "#0f172a",
+                        "surface-tint": "#0f236e",
+                        "on-surface-variant": "#475569",
+                        "primary-fixed-dim": "#cbd5e1",
+                        "background": "#f8fafc",
+                        "on-secondary": "#ffffff",
+                        "primary": "#0a194f",
+                        "primary-hover": "#061036",
+                        "error": "#dc2626",
+                        "secondary": "#ea580c",
+                        "secondary-hover": "#c2410c",
+                        "secondary-container": "#ffedd5",
+                        "on-secondary-container": "#9a3412",
+                        "tertiary": "#d97706",
+                        "tertiary-fixed": "#fef3c7",
+                        "tertiary-container": "#fef3c7",
+                        "surface-container": "#f1f5f9",
+                        "surface-container-low": "#f8fafc",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#e2e8f0",
+                        "outline": "#94a3b8",
+                        "outline-variant": "#cbd5e1",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#0f172a"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.375rem",
+                        "md": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "2xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "gutter": "24px",
+                        "margin-desktop": "40px",
+                        "margin-mobile": "16px",
+                        "container-max": "1280px"
+                    },
+                    fontFamily: {
+                        "sans": ["'Plus Jakarta Sans'", "sans-serif"],
+                        "display": ["'Outfit'", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .timeline-container { position: relative; }
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0; bottom: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            background-color: #cbd5e1;
+            z-index: 0;
+        }
+        @media (max-width: 767px) {
+            .timeline-container::before { left: 24px; }
+        }
+        .timeline-node { position: relative; z-index: 10; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+    </style>
+    
+
+</head>
+<body class="bg-background text-on-surface font-sans min-h-screen flex flex-col antialiased selection:bg-secondary selection:text-white">
+
+    <!-- Top Navigation Bar -->
+    <nav class="w-full top-0 sticky z-50 bg-white/95 backdrop-blur-md text-primary border-b border-outline-variant shadow-sm transition-all duration-200">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex justify-between items-center h-20">
+            <div class="flex items-center gap-3 cursor-pointer" onclick="switchTab('home')">
+                <img alt="MIT Logo" class="h-11 w-11 object-contain" src="https://i.ibb.co/ccJkdqhQ/1785259463578.png">
+                <div class="flex flex-col">
+                    <span class="font-display font-extrabold text-xl md:text-2xl text-primary tracking-tight leading-none">MIT JUNIOR COLLEGE</span>
+                    <span class="text-[11px] font-semibold text-secondary tracking-widest uppercase">Alandi (D) & VGS Campus</span>
+                </div>
+            </div>
+            
+            <div class="hidden lg:flex items-center gap-7">
+                <button onclick="switchTab('home')" class="nav-btn text-secondary font-bold border-b-2 border-secondary pb-1" data-tab="home">Home</button>
+                <button onclick="switchTab('about')" class="nav-btn text-on-surface-variant hover:text-primary font-medium transition-colors" data-tab="about">About Us</button>
+                <button onclick="switchTab('courses')" class="nav-btn text-on-surface-variant hover:text-primary font-medium transition-colors" data-tab="courses">Courses</button>
+                <button onclick="switchTab('admissions')" class="nav-btn text-on-surface-variant hover:text-primary font-medium transition-colors" data-tab="admissions">Admissions</button>
+                <button onclick="switchTab('faculty')" class="nav-btn text-on-surface-variant hover:text-primary font-medium transition-colors" data-tab="faculty">Faculty</button>
+                <button onclick="switchTab('contact')" class="nav-btn text-on-surface-variant hover:text-primary font-medium transition-colors" data-tab="contact">Contact</button>
+                <button onclick="switchTab('credits')" class="nav-btn text-on-surface-variant hover:text-primary font-medium transition-colors" data-tab="credits">Credits</button>
+            </div>
+            <div class="flex items-center gap-4">
+                <button onclick="switchTab('admissions')" class="hidden sm:flex bg-secondary text-white font-semibold text-sm px-5 py-2.5 rounded-lg shadow-sm hover:bg-secondary-hover transition-all">Apply Now</button>
+                <button class="lg:hidden text-primary p-2 rounded-lg hover:bg-surface-container" onclick="toggleMobileMenu()">
+                    <span class="material-symbols-outlined text-2xl">menu</span>
+                </button>
+            </div>
+        </div>
+        
+        
+        <!-- TOP MOVING TICKER -->
+<div class="bg-secondary text-white py-2 overflow-hidden border-b border-orange-700/40 relative z-50">
+    <div id="ticker-container" class="w-full overflow-hidden whitespace-nowrap">
+        <div id="ticker-text" class="inline-block whitespace-nowrap text-xs sm:text-sm font-medium tracking-wide">
+            <span class="mx-6">📢 <strong>Admissions Open (2026-27):</strong> 11th & 12th Integrated Science (JEE/NEET/MHT-CET) & Commerce (CA/CS).</span>
+            <span class="mx-6">✨ <em>"Building Excellence in Education & Character."</em></span>
+            <span class="mx-6">🏆 Record 100% Board Results Achieved Year After Year!</span>
+            <span class="mx-6">📞 Admissions Helpline: +91 8208429912 / +91 8669662105</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function () {
+        const container = document.getElementById('ticker-container');
+        const text = document.getElementById('ticker-text');
+        
+        if (!container || !text) return;
+
+        let pos = container.offsetWidth;
+        let isPaused = false;
+
+        container.addEventListener('touchstart', () => isPaused = true);
+        container.addEventListener('touchend', () => isPaused = false);
+        container.addEventListener('mouseenter', () => isPaused = true);
+        container.addEventListener('mouseleave', () => isPaused = false);
+
+        function step() {
+            if (!isPaused) {
+                pos -= 1.5; // Change speed here (higher = faster)
+                if (pos < -text.offsetWidth) {
+                    pos = container.offsetWidth;
+                }
+                text.style.transform = `translateX(${pos}px)`;
+            }
+            requestAnimationFrame(step);
+        }
+
+        requestAnimationFrame(step);
+    })();
+</script>
+
+
+        <!-- Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-outline-variant px-6 py-4 flex-col gap-3 shadow-lg">
+            <button onclick="switchTab('home'); toggleMobileMenu()" class="text-left py-2 text-primary font-semibold border-b border-slate-100">Home</button>
+            <button onclick="switchTab('about'); toggleMobileMenu()" class="text-left py-2 text-on-surface-variant border-b border-slate-100">About Us</button>
+            <button onclick="switchTab('courses'); toggleMobileMenu()" class="text-left py-2 text-on-surface-variant border-b border-slate-100">Courses</button>
+            <button onclick="switchTab('admissions'); toggleMobileMenu()" class="text-left py-2 text-on-surface-variant border-b border-slate-100">Admissions</button>
+            <button onclick="switchTab('faculty'); toggleMobileMenu()" class="text-left py-2 text-on-surface-variant border-b border-slate-100">Faculty</button>
+            <button onclick="switchTab('contact'); toggleMobileMenu()" class="text-left py-2 text-on-surface-variant border-b border-slate-100">Contact</button>
+            <button onclick="switchTab('credits'); toggleMobileMenu()" class="text-left py-2 text-on-surface-variant">Credits</button>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="flex-grow">
+        
+        <!-- ================= PAGE 1: HOME ================= -->
+        <div id="tab-home" class="tab-content active">
+            <!-- Hero Section -->
+            <section class="relative w-full pt-20 pb-36 flex items-center justify-center bg-primary overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-primary/80 z-10"></div>
+                <img alt="MIT Campus Hero" class="absolute inset-0 w-full h-full object-cover opacity-30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDffWp2_fV8PeSLq7Z5v7RxHaxrREgEYJvJH9IpkgvYuFvK9hKIKKt6dTjlv5T2823p1kd7wZSlHxtZvLVOMZ5xle3W2efhOrV5XUg3Dk_v-EY1NA3jXdWv6hPRD_HxQk5bP5I85FKCcdEgGF_ecfm0WgakcsN4-t6qmTiaPtuKNEjau1J_AxCdQDFYatR1FswPOvcDCAA28humd7yr12V9p1y5hsgHe7Wzd9_Hql0XLJKPQZYxGFG-i_KmK5TGN9CyNRTTGI2Tab4">
+                
+                <div class="relative z-20 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center md:text-left flex flex-col items-center md:items-start gap-6 w-full">
+                    <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/20 text-tertiary-fixed text-xs font-semibold uppercase tracking-wider">
+                        <span class="material-symbols-outlined text-sm">verified</span>
+                        MAEER'S MIT GROUP | 42+ YEARS OF EXCELLENCE
+                    </div>
+                    <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl text-white font-extrabold tracking-tight leading-tight">
+                        Building Excellence <br class="hidden sm:inline">In Education & Character
+                    </h1>
+                    <p class="font-sans text-base sm:text-lg text-slate-200 max-w-3xl leading-relaxed">
+                        Admissions Open for 11th & 12th Science & Commerce. We offer premier integrated programs for JEE, NEET, MHT-CET, CA, and CS Foundation alongside the HSC board curriculum. Join us to transform your potential into academic success.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4 w-full sm:w-auto">
+                        <button onclick="switchTab('admissions')" class="bg-secondary text-white px-8 py-3.5 rounded-xl font-semibold text-base hover:bg-secondary-hover transition-all shadow-lg shadow-secondary/30 flex items-center justify-center gap-2">
+                            Enroll Today <span class="material-symbols-outlined text-xl">arrow_forward</span>
+                        </button>
+                        <button onclick="switchTab('about')" class="border border-white/30 backdrop-blur-sm text-white px-8 py-3.5 rounded-xl font-semibold text-base hover:bg-white/10 transition-all flex items-center justify-center gap-2">
+                            Explore Campus
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stats Overlay -->
+            <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full -mt-20 relative z-30">
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-gutter">
+                    <div class="bg-white text-on-surface rounded-2xl p-6 text-center shadow-xl border border-slate-100 flex flex-col items-center">
+                        <div class="w-12 h-12 bg-amber-50 text-amber-600 rounded-xl flex items-center justify-center mb-3">
+                            <span class="material-symbols-outlined text-2xl">history_edu</span>
+                        </div>
+                        <h3 class="font-display text-3xl md:text-4xl font-extrabold text-primary mb-1">42+</h3>
+                        <p class="font-semibold text-slate-500 uppercase tracking-wider text-xs">Years Legacy</p>
+                    </div>
+                    <div class="bg-white text-on-surface rounded-2xl p-6 text-center shadow-xl border border-slate-100 flex flex-col items-center">
+                        <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-3">
+                            <span class="material-symbols-outlined text-2xl">account_balance</span>
+                        </div>
+                        <h3 class="font-display text-3xl md:text-4xl font-extrabold text-primary mb-1">72+</h3>
+                        <p class="font-semibold text-slate-500 uppercase tracking-wider text-xs">Institutions</p>
+                    </div>
+                    <div class="bg-white text-on-surface rounded-2xl p-6 text-center shadow-xl border border-slate-100 flex flex-col items-center">
+                        <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center mb-3">
+                            <span class="material-symbols-outlined text-2xl">groups</span>
+                        </div>
+                        <h3 class="font-display text-3xl md:text-4xl font-extrabold text-primary mb-1">70,000+</h3>
+                        <p class="font-semibold text-slate-500 uppercase tracking-wider text-xs">Active Students</p>
+                    </div>
+                    <div class="bg-white text-on-surface rounded-2xl p-6 text-center shadow-xl border border-slate-100 flex flex-col items-center">
+                        <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center mb-3">
+                            <span class="material-symbols-outlined text-2xl">public</span>
+                        </div>
+                        <h3 class="font-display text-3xl md:text-4xl font-extrabold text-primary mb-1">200,000+</h3>
+                        <p class="font-semibold text-slate-500 uppercase tracking-wider text-xs">Global Alumni</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Why Choose Us -->
+            <section class="py-20 bg-surface max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full">
+                <div class="text-center mb-16 space-y-3">
+                    <span class="text-secondary font-semibold text-sm tracking-wider uppercase">Our Core Strengths</span>
+                    <h2 class="font-display text-3xl md:text-4xl font-bold text-primary">Why Choose MIT Junior Colleges?</h2>
+                    <p class="font-sans text-slate-600 max-w-2xl mx-auto">Learn about the salient features that drive our academic legacy forward.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-2xl border border-slate-200/80 p-6 flex gap-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                        <div class="w-10 h-10 rounded-xl bg-blue-50 text-primary flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined">check_circle</span>
+                        </div>
+                        <div>
+                            <h3 class="font-display font-bold text-lg text-primary mb-1">Excellent Results</h3>
+                            <p class="text-sm text-slate-600 leading-relaxed">Consistent high scores and selections in national competitive examinations like JEE, NEET & MHT-CET.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl border border-slate-200/80 p-6 flex gap-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                        <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined">verified</span>
+                        </div>
+                        <div>
+                            <h3 class="font-display font-bold text-lg text-primary mb-1">100% Board Results</h3>
+                            <p class="text-sm text-slate-600 leading-relaxed">Outstanding record of 100% HSC board results across all streams year after year.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl border border-slate-200/80 p-6 flex gap-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined">school</span>
+                        </div>
+                        <div>
+                            <h3 class="font-display font-bold text-lg text-primary mb-1">Qualified Faculty</h3>
+                            <p class="text-sm text-slate-600 leading-relaxed">Experienced and highly qualified teachers offering specialized guidance and mentorship.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl border border-slate-200/80 p-6 flex gap-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                        <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined">forum</span>
+                        </div>
+                        <div>
+                            <h3 class="font-display font-bold text-lg text-primary mb-1">Doubt Lectures</h3>
+                            <p class="text-sm text-slate-600 leading-relaxed">Weekly chapter-wise tests and dedicated doubt-clearing sessions to reinforce learning.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl border border-slate-200/80 p-6 flex gap-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                        <div class="w-10 h-10 rounded-xl bg-orange-50 text-secondary flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined">computer</span>
+                        </div>
+                        <div>
+                            <h3 class="font-display font-bold text-lg text-primary mb-1">Testing Platform</h3>
+                            <p class="text-sm text-slate-600 leading-relaxed">Online and offline testing modules with detailed question-wise result analysis for each student.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl border border-slate-200/80 p-6 flex gap-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                        <div class="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined">menu_book</span>
+                        </div>
+                        <div>
+                            <h3 class="font-display font-bold text-lg text-primary mb-1">Custom Study Material</h3>
+                            <p class="text-sm text-slate-600 leading-relaxed">In-house designed, comprehensive study materials tailored for entrance and board preparations.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl border border-slate-200/80 p-6 flex gap-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                        <div class="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined">record_voice_over</span>
+                        </div>
+                        <div>
+                            <h3 class="font-display font-bold text-lg text-primary mb-1">Eminent Guest Lectures</h3>
+                            <p class="text-sm text-slate-600 leading-relaxed">Regular interactive sessions and guest lectures conducted by subject matter experts.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl border border-slate-200/80 p-6 flex gap-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                        <div class="w-10 h-10 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined">explore</span>
+                        </div>
+                        <div>
+                            <h3 class="font-display font-bold text-lg text-primary mb-1">Career Counselling</h3>
+                            <p class="text-sm text-slate-600 leading-relaxed">Dedicated professional career counselling to guide students towards optimal future streams.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl border border-slate-200/80 p-6 flex gap-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                        <div class="w-10 h-10 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined">build</span>
+                        </div>
+                        <div>
+                            <h3 class="font-display font-bold text-lg text-primary mb-1">Skill Workshops</h3>
+                            <p class="text-sm text-slate-600 leading-relaxed">Skill development workshops in Tally software, Website design, Photoshop, E-commerce, etc.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl border border-slate-200/80 p-6 flex gap-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                        <div class="w-10 h-10 rounded-xl bg-yellow-50 text-amber-700 flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined">directions_bus</span>
+                        </div>
+                        <div>
+                            <h3 class="font-display font-bold text-lg text-primary mb-1">Educational Tours</h3>
+                            <p class="text-sm text-slate-600 leading-relaxed">Organized outdoor educational trips and industrial site visits for practical learning exposure.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl border border-slate-200/80 p-6 flex gap-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                        <div class="w-10 h-10 rounded-xl bg-pink-50 text-pink-600 flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined">celebration</span>
+                        </div>
+                        <div>
+                            <h3 class="font-display font-bold text-lg text-primary mb-1">Inter-MIT Events</h3>
+                            <p class="text-sm text-slate-600 leading-relaxed">Dynamic inter-institutional competitions and joint cultural/sports events group-wide.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl border border-slate-200/80 p-6 flex gap-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                        <div class="w-10 h-10 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined">family_restroom</span>
+                        </div>
+                        <div>
+                            <h3 class="font-display font-bold text-lg text-primary mb-1">Parent-Teacher Meetings</h3>
+                            <p class="text-sm text-slate-600 leading-relaxed">Regular structured meetings (PTM) to share feedback and align parent-student support.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Campus Life Gallery Section -->
+            <section class="py-20 bg-slate-100/60 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full rounded-3xl my-8">
+                <div class="text-center mb-16 space-y-3">
+                    <span class="text-secondary font-semibold text-sm tracking-wider uppercase">Campus Atmosphere</span>
+                    <h2 class="font-display text-3xl md:text-4xl font-bold text-primary">Campus Life Gallery</h2>
+                    <p class="font-sans text-slate-600 max-w-2xl mx-auto">Catch a glimpse of the vibrancy, student activities, and achievements taking place daily at MIT Alandi.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="lg:col-span-1 bg-primary rounded-2xl overflow-hidden relative flex flex-col justify-end p-8 text-white min-h-[360px] shadow-lg group">
+                        <img alt="Campus Building" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-500" src="https://i.ibb.co/sf28BRN/1785259579315.png">
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
+                        <div class="relative z-10">
+                            <span class="inline-block bg-secondary text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3">Main Campus</span>
+                            <h3 class="font-display text-2xl font-bold mb-2">Campus Building</h3>
+                            <p class="text-slate-300 text-sm">Main Campus Structure, Alandi (D) Opp. Gajanan Maharaj Temple.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="bg-primary rounded-2xl overflow-hidden relative flex flex-col justify-end p-6 text-white min-h-[200px] shadow-md group">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAq5R-_AWlDXdaihhQQXDimAfhVhRe3Kf8l_p0L4Nort0nFFTiNlGWA7f96Az9MkSn0DDemKb5PNTIaO7bIK0uOP_9nxXZU3Wqt6JymRYTSJ-Dwj4ZfExagI5Yyss8jiYRJjx4Ux7AU_RasQFOAiJC9BT3GZcq617wnJCrFzEqxbKW8yUbm7_oJ_xqhdVrz9dMHOf4gGy2v0LbGqW67D6T8sbkKKoCDOFwy6B2Ofd03AO5vhk3u-pybe5LO_SrRy8DTHMHMSCjWOXM" alt="Educational Trips" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
+                            <div class="relative z-10">
+                                <h3 class="font-display text-xl font-bold mb-1">Educational Trips</h3>
+                                <p class="text-slate-300 text-xs">Outdoor educational tours and visits.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-primary rounded-2xl overflow-hidden relative flex flex-col justify-end p-6 text-white min-h-[200px] shadow-md group">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzWZusYSoHGlxZ2WMtVkkfRDOlTmgXh39KhgeMg1ewChmeODzMrdHSs_mwajAER1wMXSMXFjwGbYHiXgB_5u6roT2U-8r_6DEO87PLG9vALYT3Mwmj1LvALNPMKur2bTOE5CGEICLrz8lT_M5D4rZoM9tRBQiHdui4_29luyiQP_tR0UH3FkTyaFBJYNItA07TvLD5f2Q1HpM5oFeQGG4zFuiJrEsIdHmbtALoOS5hDIn8X7G1AzivPtks04cN5zeaYQj7xpZGFSw" alt="Achievers Day" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
+                            <div class="relative z-10">
+                                <h3 class="font-display text-xl font-bold mb-1">Achievers Day</h3>
+                                <p class="text-slate-300 text-xs">Awards distribution and ceremony.</p>
+                            </div>
+                        </div>
+
+                        <div class="sm:col-span-2 bg-primary rounded-2xl overflow-hidden relative flex flex-col justify-end p-6 text-white min-h-[180px] shadow-md group">
+                            <img alt="PTM" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9h5ncLMcAqOV1uevvDwkoy7-gPcWbSdPsMY2s8Ag8mJv1lk54qvi7mN5qcwbY3LemGVDEHyneC_rtEo0Ga9AzQMLf2FpXM_NG8KBNiVdb3TEI6Y35HmGmQJb4JbvWuiXzDDSh91n3FZmccg-SU5MtCDtQSPZKLjWJ9m1-4J8162-A9v7RdI4dcFnrTD2iLWPyPx3hKp56qpIuTmudrINyJPeMvHBgYpJwQk8gQnknZTsVqbfQZqPblSmTkck3wygmH9RMzikqlYQ">
+                            <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
+                            <div class="relative z-10">
+                                <h3 class="font-display text-xl font-bold mb-1">Parent-Teacher Meetings</h3>
+                                <p class="text-slate-300 text-xs">Regular structured meetings to align parent-student support.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+ 
+        <!-- ================= PAGE 2: ABOUT US ================= -->
+        <div id="tab-about" class="tab-content">
+            <section class="relative bg-primary text-white py-16 md:py-24 px-margin-mobile md:px-margin-desktop text-center">
+                <div class="max-w-container-max mx-auto relative z-10 space-y-3">
+                    <span class="bg-white/10 text-tertiary-fixed text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider">About Our Institution</span>
+                    <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold">About MIT Junior College</h1>
+                    <p class="text-slate-300 text-base max-w-2xl mx-auto">Building futures through value-based discipline, scholastic rigor, and modern competitive training.</p>
+                </div>
+            </section>
+
+            <!-- Legacy Section -->
+            <section class="py-16 md:py-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <span class="text-secondary font-semibold text-sm tracking-wider uppercase">42+ Years of Excellence</span>
+                        <h2 class="font-display text-3xl md:text-4xl font-bold text-primary leading-tight">Our Rich Scholastic Legacy</h2>
+                        <div class="space-y-4 text-slate-600 leading-relaxed text-sm md:text-base">
+                            <p>MAEER's MIT Group Pune has built a distinguished education legacy of more than 42 years. Our institutional network includes 4 universities and over 70 institutions, educating a combined cohort of 70,000+ active students, guided by expert faculty, and supported by a global community of over 200,000+ alumni.</p>
+                            <p>At MIT Junior Colleges, Alandi, we extend this powerful legacy to junior college education (Class 11th and 12th). Located Opp. Gajanan Maharaj Temple, Alandi (D), our campus offers students a robust value-based academic environment designed to convert potential into high performance.</p>
+                            <p>We blend the official HSC board curriculum with integrated coaching for entrance exams (JEE, NEET, MHT-CET, CA, and CS Foundation), preparing students not just for board exams, but for competitive success and rewarding careers.</p>
+                        </div>
+                    </div>
+                    <div class="bg-primary text-white rounded-2xl p-8 flex flex-col items-center justify-center text-center aspect-[4/3] relative overflow-hidden shadow-xl group">
+                        <img src="https://i.ibb.co/sf28BRN/1785259579315.png" alt="Alandi Campus Building" class="absolute inset-0 w-full h-midium object-cover opacity-20 group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/50 to-transparent"></div>
+                        <div class="relative z-10 flex flex-col items-center">
+                            <span class="material-symbols-outlined text-5xl mb-3 text-tertiary-fixed">apartment</span>
+                            <h3 class="font-display font-bold text-xl uppercase tracking-wider mb-2">Alandi Campus Building</h3>
+                            <p class="text-sm text-slate-300 max-w-xs">Opp. Gajanan Maharaj Temple, Alandi, Pune</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Vision Mission Values -->
+            <section class="py-16 md:py-20 px-margin-mobile md:px-margin-desktop bg-slate-50 border-y border-slate-200">
+                <div class="max-w-container-max mx-auto w-full">
+                    <div class="text-center mb-16 space-y-2">
+                        <span class="text-secondary font-semibold text-sm tracking-wider uppercase">Our Institutional Identity</span>
+                        <h2 class="font-display text-3xl md:text-4xl font-bold text-primary">Our Vision, Mission & Values</h2>
+                        <p class="text-slate-600 max-w-2xl mx-auto text-sm md:text-base">Learn about the core ideals guiding our academic community forward.</p>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div class="bg-primary text-white rounded-2xl p-8 flex flex-col items-center justify-center text-center h-full min-h-[300px] relative overflow-hidden shadow-lg group">
+                            <img src="https://i.ibb.co/kVS0rB9Q/MHTCET-Results-2026.png" alt="Academic Focus" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/50 to-transparent"></div>
+                            <div class="relative z-10 flex flex-col items-center">
+                                <span class="material-symbols-outlined text-5xl mb-3 text-tertiary-fixed">stars</span>
+                                <h3 class="font-display font-bold text-xl uppercase tracking-wider mb-2">Achievers</h3>
+                                <p class="text-sm text-slate-300 max-w-xs">Nurturing value-based future change-makers</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex gap-5 p-6 border border-slate-200 rounded-2xl bg-white shadow-sm">
+                                <div class="w-12 h-12 shrink-0 rounded-xl bg-blue-50 text-primary flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-2xl">visibility</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-display font-bold text-lg text-primary mb-1">Scholastic Vision</h3>
+                                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed">To be recognized globally as a center of scholastic excellence, fostering an inclusive ecosystem for breakthroughs, and shaping value-driven global change-makers.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-5 p-6 border border-slate-200 rounded-2xl bg-white shadow-sm">
+                                <div class="w-12 h-12 shrink-0 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-2xl">flag</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-display font-bold text-lg text-primary mb-1">Strategic Mission</h3>
+                                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed">To deliver advanced training across science and commerce streams, facilitate integrated competitive coaching, encourage analytical reasoning, and shape academic prospects while preserving ethical values.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-5 p-6 border border-slate-200 rounded-2xl bg-white shadow-sm">
+                                <div class="w-12 h-12 shrink-0 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-2xl">favorite</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-display font-bold text-lg text-primary mb-1">Core Ideals</h3>
+                                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed">Our foundation rests on: <strong>Academic Rigor</strong>, <strong>Constant Assessment</strong>, <strong>Personal Mentorship</strong>, and <strong>Values-based Discipline</strong> across all student activities.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Leadership Section -->
+            <section class="py-16 md:py-20 px-margin-mobile md:px-margin-desktop bg-white">
+                <div class="max-w-container-max mx-auto w-full">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                        <div class="lg:col-span-5 bg-white border border-slate-200 rounded-2xl p-8 shadow-md flex flex-col items-center text-center">
+                            <img alt="Dr. Sadashiv S. Kumbhar" class="w-40 h-40 rounded-full object-cover mb-4 border-4 border-secondary shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaJoxXGyrec2pRhPtvwnAfMoQ4jemRKKBXcO4cXl_HRwEB_Y5NWoI2wPyLVUf-C7wKtlZU_VOrsWP26Ofoc8oixP0kqiv1M0Ovh-wd90VwrHT8qBj4aG-nF6y14dKICf4VxuY3a2aSWQvVy919O-4GOUh-LnbRsk0YOfrdVghbGDf7dq54aMIGxU78SQGJUBDvhBt7IAOSPayGlhuy2apl6-VU039uXRDQpGl5RC_byoDioP20d6GnDmrvhDZQNnXfDd5anpUMesg">
+                            <h3 class="font-display font-bold text-xl text-primary mb-1">Dr. Sadashiv S. Kumbhar</h3>
+                            <p class="text-xs font-semibold text-secondary uppercase tracking-wider mb-3">Principal & Senior Lecturer - Physics</p>
+                            <span class="bg-blue-50 text-primary text-xs px-3 py-1 rounded-full font-medium">M.Sc., M.Ed, Ph.D, M.Phil (Physics)</span>
+                        </div>
+                        <div class="lg:col-span-7 space-y-6">
+                            <div class="border-l-4 border-secondary pl-6 py-1">
+                                <p class="font-display text-xl md:text-2xl font-bold text-primary leading-relaxed italic">
+                                    "Our proficiency lies in contemporary ideas of teaching. Real life examples are our tools to encourage students to not only understand, but also inculcate physics, science, and commerce principles in their lives."
+                                </p>
+                            </div>
+                            <div class="space-y-4 text-slate-600 text-sm md:text-base leading-relaxed">
+                                <p>Welcome to MIT Junior College, Alandi. As part of MAEER's MIT Pune, we are dedicated to fostering scholastic performance and competitive success. We have built an ecosystem where your competitive ambitions meet structured guidance and resource-rich classrooms.</p>
+                                <p>Our academic program provides meticulous preparation by combining HSC board study with integrated entrance coaching (JEE, NEET, MHT-CET, CA, and CS Foundation). Our experienced faculty team, chapterwise macro and microplanning, and Saturday testing patterns are designed to convert average scores into top ranks.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Campus Facilities Section -->
+            <section class="py-16 md:py-20 px-margin-mobile md:px-margin-desktop bg-slate-50 border-t border-slate-200">
+                <div class="max-w-container-max mx-auto w-full">
+                    <div class="text-center mb-16 space-y-2">
+                        <span class="text-secondary font-semibold text-sm tracking-wider uppercase">Infrastructure</span>
+                        <h2 class="font-display text-3xl md:text-4xl font-bold text-primary">Campus Facilities & Activities</h2>
+                        <p class="text-slate-600 max-w-2xl mx-auto text-sm md:text-base">Explore the physical infrastructure and activities designed to support your academic and student life.</p>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="bg-primary text-white rounded-2xl p-6 aspect-square flex flex-col justify-end relative overflow-hidden group shadow-md">
+                            <img alt="Computer Lab" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBf5B-0T1pLReUvWvmVZWVofDXLZA0-3f0lv8bdebxJhuJHjQGpjjCq5bzBtA_4jto6I8RQHcfL2nzDrjNejKLU4UhvUxoYbQFnHtvbbl3jf83bo_RnbbgnziKZgQ4CBS5qUjieOZeReXq1dimmckvlRkK0K7d4G4iA-0MHGJuHD6UCVoJydBdCAg6eAUMIWRemz62YTAASO-bDQBk3Pp0f9Kc126XCRpm5ygboDs_JrsOGWHggn1WhgY3Prm0pr8fyNqy_fcVDNQg">
+                            <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
+                            <div class="relative z-10">
+                                <p class="text-amber-300 font-bold text-xs tracking-widest uppercase mb-1">[ COMPUTER LAB ]</p>
+                                <h3 class="font-display text-2xl font-bold">Advanced Computer Lab</h3>
+                            </div>
+                        </div>
+                        <div class="bg-primary text-white rounded-2xl p-6 aspect-square flex flex-col justify-end relative overflow-hidden group shadow-md">
+                            <img alt="Science Laboratories" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkMWdzbwwE3aptA3qbCXMzpsNrIYWOU8EUOdjjIK6KxwvHrcRRuHjY_hU6Nhd1Hwwzu-txgfvBxlDoIiFqBF2ba15Uwiz9EmtPWjY6ROFg2p0YUvwnF35rGScQ6XcNUTwYlfKcNlAtlPOXEXK84bocEiCKY7nRN817xXU17hQBJgKK5mM5wpxT8d31VvrDC6uS5o406pxc0oilzTqul9cIB-Zii6S5ImwAyyGi4HGj5dOjFMlc3xMGt90Ndxrv_S0NuhDKXk4qrO8">
+                            <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
+                            <div class="relative z-10">
+                                <p class="text-amber-300 font-bold text-xs tracking-widest uppercase mb-1">[ CHEMISTRY & SCIENCE LAB ]</p>
+                                <h3 class="font-display text-2xl font-bold">Science Laboratories</h3>
+                            </div>
+                        </div>
+                        <div class="bg-primary text-white rounded-2xl p-6 aspect-square flex flex-col justify-end relative overflow-hidden group shadow-md">
+                            <img alt="Sports Activities" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2_kbaoiVk5sNhJLQPsO_s8o_KzNYqafdReNq8mDCY3opHKJ-tkmuK7dZKeR__3GMd9Vd_X9ZD_v6qA4EoP7fve2xfigBHxfjenC_j7v9azAr41VAsyhnoAhwjVZqrkO6Q-Tkd58EXp9pldgt2Q9xIL3Uazg97yAk80imBaRMuMEuyuc3QFK4U1zUivwMGqWkOyoC2xpLf6IcSoQHD3iLHIadz255_o4pMDi1QauLq337pyHkHbXn6S48hdsYlo5rufT3mjcfM6UA">
+                            <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
+                            <div class="relative z-10">
+                                <p class="text-amber-300 font-bold text-xs tracking-widest uppercase mb-1">[ SPORTS ACTIVITIES ]</p>
+                                <h3 class="font-display text-2xl font-bold">Sports & Physical Activities</h3>
+                            </div>
+                        </div>
+                        <div class="bg-primary text-white rounded-2xl p-6 aspect-square flex flex-col justify-end relative overflow-hidden group shadow-md">
+                            <img alt="Educational Trips" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD67rct0-GNU2vhbak4ST6ZwYkNGh9KfJwjlEo6hjgSYLDZbG0VDfxtlD8tyXiJcUQeM7eEIzW-rRhAxpOYuCcyMucNxgWI7QK1zTAQFmraNTzbTmhqp7HGqvzmP9NGwXcC4v9JI5wwkUC7v9Q1J2-uR7uG-7Q2vc-xMTbfbVnTsApp-yfS5oFg_WtkkrQJy9AoE2JWrKvvmf-Mcfbfij2cSrLXhlBY0-qtf_fIX8wUxI7RkmCraHBiwCTfocW9NPM1-vElda7NhAU">
+                            <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
+                            <div class="relative z-10">
+                                <p class="text-amber-300 font-bold text-xs tracking-widest uppercase mb-1">[ EDUCATIONAL TRIPS ]</p>
+                                <h3 class="font-display text-2xl font-bold">Educational Trips</h3>
+                            </div>
+                        </div>
+                        <div class="bg-primary text-white rounded-2xl p-6 aspect-square flex flex-col justify-end relative overflow-hidden group shadow-md sm:col-span-2 lg:col-span-2">
+                            <img alt="Parent-Teacher Meetings" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiyjXAPrkzgUf1nUsuCe53B6T6sK73WzFEIFW2JwkrORfBS2FVfm2iQlCKPAG2zMzbEPHrs4v129aNnefT_OqTFhrbB0JWWjFMQdUD2WTCJQ8KCJNfXFoLlEw127QvRkeT_-N69HVIg59b5bRMMcuFfkw9_T7finqECQ_1uKjpSDZslAE1aTkoyA0HVecloj4SmGB47peZdafHcFm-KPCNRKhv6X2SC3RRGCOlg5qYJMTeopNMiXZDiAR5_hnKmL7MYGJLxdd3nmI">
+                            <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
+                            <div class="relative z-10">
+                                <p class="text-amber-300 font-bold text-xs tracking-widest uppercase mb-1">[ PARENT-TEACHER MEETINGS ]</p>
+                                <h3 class="font-display text-2xl font-bold">Parent-Teacher Interactions & Feedback</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+ <!-- ================= PAGE 3: COURSES ================= -->
+        <div id="tab-courses" class="tab-content">
+            <section class="bg-primary text-white py-16 md:py-24 text-center">
+                <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop space-y-3">
+                    <span class="bg-white/10 text-tertiary-fixed text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider">Curriculum & Streams</span>
+                    <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold">Courses & Integrated Programs</h1>
+                    <p class="text-slate-300 text-base max-w-2xl mx-auto">Comprehensive curriculum details for Science and Commerce combined with national entrance prep.</p>
+                </div>
+            </section>
+
+            <!-- Search & Filter Bar -->
+            <section class="border-b border-slate-200 bg-white py-5 sticky top-20 z-40 shadow-sm">
+                <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-4">
+                    <div class="relative w-full md:w-96">
+                        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+                        <input id="courseSearchInput" onkeyup="filterCourses()" class="w-full pl-10 pr-4 py-2.5 border border-slate-200 rounded-xl bg-slate-50 focus:border-primary focus:bg-white focus:outline-none text-sm transition-all" placeholder="Search streams or subjects..." type="text">
+                    </div>
+                    <div class="flex bg-slate-100 rounded-xl p-1.5 w-full md:w-auto gap-1">
+                        <button onclick="filterStream('all')" id="btn-stream-all" class="stream-btn px-5 py-2 rounded-lg bg-primary text-white font-medium text-xs md:text-sm shadow-sm transition-all">All Streams</button>
+                        <button onclick="filterStream('science')" id="btn-stream-science" class="stream-btn px-5 py-2 rounded-lg text-slate-600 hover:bg-white font-medium text-xs md:text-sm transition-all">Science</button>
+                        <button onclick="filterStream('commerce')" id="btn-stream-commerce" class="stream-btn px-5 py-2 rounded-lg text-slate-600 hover:bg-white font-medium text-xs md:text-sm transition-all">Commerce</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Science & Commerce Overviews -->
+            <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 md:py-16">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <article data-stream="science" class="course-card bg-white border border-slate-200 rounded-2xl overflow-hidden flex flex-col shadow-md hover:shadow-xl transition-all duration-300">
+                        <div class="bg-primary text-white p-8 text-center flex flex-col items-center relative">
+                            <div class="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center mb-3">
+                                <span class="material-symbols-outlined text-3xl text-amber-300">science</span>
+                            </div>
+                            <span class="text-xs font-semibold text-slate-300 uppercase tracking-widest mb-1">Class 11th & 12th</span>
+                            <h3 class="font-display text-2xl font-bold">SCIENCE STREAM (INTEGRATED)</h3>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow space-y-6">
+                            <p class="text-slate-600 text-sm leading-relaxed">A premium two-year academic curriculum offering integrated coaching for JEE, NEET, and MHT-CET alongside standard HSC Board subjects (Physics, Chemistry, Mathematics, Biology).</p>
+                            <div class="grid grid-cols-2 gap-4 pt-2 border-t border-slate-100">
+                                <div class="flex items-center gap-2 text-xs font-semibold text-slate-700">
+                                    <span class="material-symbols-outlined text-primary text-lg">schedule</span>
+                                    <span>2 Years Duration</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-xs font-semibold text-slate-700">
+                                    <span class="material-symbols-outlined text-secondary text-lg">school</span>
+                                    <span>10th Pass (PCM / PCB)</span>
+                                </div>
+                            </div>
+                            <button onclick="switchTab('admissions')" class="w-full bg-primary text-white py-3 rounded-xl font-semibold text-sm hover:bg-primary-hover transition-colors shadow-sm">
+                                Apply For Science Stream
+                            </button>
+                        </div>
+                    </article>
+
+                    <article data-stream="commerce" class="course-card bg-white border border-slate-200 rounded-2xl overflow-hidden flex flex-col shadow-md hover:shadow-xl transition-all duration-300">
+                        <div class="bg-primary text-white p-8 text-center flex flex-col items-center relative">
+                            <div class="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center mb-3">
+                                <span class="material-symbols-outlined text-3xl text-amber-300">storefront</span>
+                            </div>
+                            <span class="text-xs font-semibold text-slate-300 uppercase tracking-widest mb-1">Class 11th & 12th</span>
+                            <h3 class="font-display text-2xl font-bold">COMMERCE STREAM (INTEGRATED)</h3>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow space-y-6">
+                            <p class="text-slate-600 text-sm leading-relaxed">A comprehensive two-year curriculum providing foundational training for Chartered Accountancy (CA Foundation) and Company Secretary (CS Foundation) alongside HSC Board Commerce curriculum.</p>
+                            <div class="grid grid-cols-2 gap-4 pt-2 border-t border-slate-100">
+                                <div class="flex items-center gap-2 text-xs font-semibold text-slate-700">
+                                    <span class="material-symbols-outlined text-primary text-lg">schedule</span>
+                                    <span>2 Years Duration</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-xs font-semibold text-slate-700">
+                                    <span class="material-symbols-outlined text-secondary text-lg">school</span>
+                                    <span>10th Pass</span>
+                                </div>
+                            </div>
+                            <button onclick="switchTab('admissions')" class="w-full bg-primary text-white py-3 rounded-xl font-semibold text-sm hover:bg-primary-hover transition-colors shadow-sm">
+                                Apply For Commerce Stream
+                            </button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Career Pathways -->
+            <section class="bg-slate-50 py-16 md:py-24 border-t border-slate-200">
+                <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center">
+                    <span class="text-secondary font-semibold text-sm tracking-wider uppercase">Future Horizons</span>
+                    <h2 class="font-display text-3xl md:text-4xl font-bold text-primary mb-3">Career Pathways after 12th</h2>
+                    <p class="font-sans text-slate-600 max-w-3xl mx-auto mb-12 text-sm md:text-base">Explore the academic opportunities and career choices open to our students after completing Class 12th.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                        <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-blue-50 text-primary rounded-xl flex items-center justify-center shrink-0">
+                                    <span class="material-symbols-outlined text-2xl">memory</span>
+                                </div>
+                                <h3 class="font-display font-bold text-xl text-primary">Science (PCM) Careers</h3>
+                            </div>
+                            <ul class="space-y-3 text-xs md:text-sm text-slate-600 leading-relaxed pt-2">
+                                <li><strong class="text-slate-900">Futuristic Engineering:</strong> Data Science, AI & Machine Learning, Mechatronics, Bioengineering, Robotics, Nanotechnology.</li>
+                                <li><strong class="text-slate-900">Core Engineering:</strong> Mechanical, Chemical, Civil, Metallurgical Engineering.</li>
+                                <li><strong class="text-slate-900">Job-Ready IT:</strong> Computer Science, Electronics & Communication, Electrical, Energy Engineering.</li>
+                                <li><strong class="text-slate-900">Alternative Careers:</strong> Industrial Product Design, Architecture, Mathematics, Statistics, Commercial Pilot, Merchant Navy.</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center shrink-0">
+                                    <span class="material-symbols-outlined text-2xl">biotech</span>
+                                </div>
+                                <h3 class="font-display font-bold text-xl text-primary">Science (PCB) Careers</h3>
+                            </div>
+                            <ul class="space-y-3 text-xs md:text-sm text-slate-600 leading-relaxed pt-2">
+                                <li><strong class="text-slate-900">Best Medical Courses:</strong> MBBS, BDS, BAMS, Pharmacy, BPT (Physiotherapy), BVSc & AH, B. Optom, Nursing, MLT.</li>
+                                <li><strong class="text-slate-900">Medical Career Paths:</strong> MD, Dentist, Veterinarian, Pharmacist, Physician Assistant, Genetic Counselor.</li>
+                                <li><strong class="text-slate-900">Non-Medical Biology:</strong> Biotechnologist, Environmental Scientist, Bioinformatician, Geneticist, Agriculturist, Marine Biologist, Forensic Scientist.</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-orange-50 text-secondary rounded-xl flex items-center justify-center shrink-0">
+                                    <span class="material-symbols-outlined text-2xl">trending_up</span>
+                                </div>
+                                <h3 class="font-display font-bold text-xl text-primary">Commerce Careers</h3>
+                            </div>
+                            <ul class="space-y-3 text-xs md:text-sm text-slate-600 leading-relaxed pt-2">
+                                <li><strong class="text-slate-900">Highest Salary Jobs:</strong> Investment Banker, Chartered Accountant (CA), Cost Management Accountant (CMA), Corporate Lawyer, Company Secretary (CS).</li>
+                                <li><strong class="text-slate-900">CA Foundation Scope:</strong> Paper-1 Accounting, Paper-2 Business Laws, Paper-3 Math & Statistics, Paper-4 Business Economics.</li>
+                                <li><strong class="text-slate-900">CS Foundation Scope:</strong> Paper-1 Business Environment & Law, Paper-2 Management & Ethics, Paper-3 Economics, Paper-4 Accounting & Auditing.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Exam Patterns -->
+            <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16 md:py-24 space-y-12">
+                <div class="text-center mb-8 space-y-2">
+                    <span class="text-secondary font-semibold text-sm tracking-wider uppercase">Exam Structures</span>
+                    <h2 class="font-display text-3xl md:text-4xl font-bold text-primary">Competitive Exam Patterns</h2>
+                    <p class="font-sans text-slate-600 max-w-3xl mx-auto text-sm md:text-base">Official structural details of national level competitive exams mapped in our integrated programs.</p>
+                </div>
+
+                <!-- JEE Mains -->
+                <div>
+                    <h3 class="font-display font-bold text-2xl text-primary flex items-center gap-2 mb-4">
+                        <span class="material-symbols-outlined text-secondary">school</span> JEE Mains Pattern (BE/B.Tech)
+                    </h3>
+                    <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
+                        <table class="w-full text-left text-xs md:text-sm">
+                            <thead class="bg-primary text-white">
+                                <tr>
+                                    <th class="px-6 py-4 font-semibold">Exam Parameter</th>
+                                    <th class="px-6 py-4 font-semibold">Details</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 bg-white">
+                                <tr><td class="px-6 py-4 font-semibold text-slate-900">Exam Mode</td><td class="px-6 py-4 text-slate-600">Online (Computer-Based Test)</td></tr>
+                                <tr><td class="px-6 py-4 font-semibold text-slate-900">Questions Type</td><td class="px-6 py-4 text-slate-600">Multiple Choice Questions (MCQs) & Numerical Value Type</td></tr>
+                                <tr><td class="px-6 py-4 font-semibold text-slate-900">Total Questions</td><td class="px-6 py-4 text-slate-600">90 Questions (Only 75 need to be answered)</td></tr>
+                                <tr><td class="px-6 py-4 font-semibold text-slate-900">Total Marks</td><td class="px-6 py-4 text-slate-600">300 Marks</td></tr>
+                                <tr><td class="px-6 py-4 font-semibold text-slate-900">Exam Duration</td><td class="px-6 py-4 text-slate-600">3 Hours</td></tr>
+                                <tr><td class="px-6 py-4 font-semibold text-slate-900">Negative Marking</td><td class="px-6 py-4 text-slate-600">-1 for each wrong answer</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- NEET -->
+                <div>
+                    <h3 class="font-display font-bold text-2xl text-primary flex items-center gap-2 mb-4">
+                        <span class="material-symbols-outlined text-emerald-600">favorite</span> NEET Exam Pattern
+                    </h3>
+                    <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
+                        <table class="w-full text-left text-xs md:text-sm">
+                            <thead class="bg-primary text-white">
+                                <tr>
+                                    <th class="px-6 py-4 font-semibold">Exam Parameter</th>
+                                    <th class="px-6 py-4 font-semibold">Details</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 bg-white">
+                                <tr><td class="px-6 py-4 font-semibold text-slate-900">Exam Mode</td><td class="px-6 py-4 text-slate-600">Offline (Pen and Paper)</td></tr>
+                                <tr><td class="px-6 py-4 font-semibold text-slate-900">Total Questions</td><td class="px-6 py-4 text-slate-600">200 Questions (Need to answer 180)</td></tr>
+                                <tr><td class="px-6 py-4 font-semibold text-slate-900">Total Marks</td><td class="px-6 py-4 text-slate-600">720 Marks</td></tr>
+                                <tr><td class="px-6 py-4 font-semibold text-slate-900">Exam Duration</td><td class="px-6 py-4 text-slate-600">3 Hours and 20 Minutes</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+         <!-- ================= PAGE 4: ADMISSIONS ================= -->
+        <div id="tab-admissions" class="tab-content">
+            <section class="bg-primary text-white py-16 md:py-24 text-center">
+                <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop space-y-3">
+                    <span class="bg-white/10 text-tertiary-fixed text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider">Admissions 2026-27</span>
+                    <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold">Admissions & Scholarships</h1>
+                    <p class="text-slate-300 text-base max-w-2xl mx-auto">Seamless four-step entry process with attractive merit-based scholarships for high achievers.</p>
+                </div>
+            </section>
+
+            <!-- Application Timeline -->
+            <section class="w-full max-w-container-max px-margin-desktop py-16 mx-auto">
+                <div class="text-center mb-16 space-y-2">
+                    <span class="text-secondary font-semibold text-sm tracking-wider uppercase">Step-by-Step Guide</span>
+                    <h2 class="font-display text-3xl md:text-4xl font-bold text-primary">Application Timeline</h2>
+                    <p class="text-slate-600 text-sm max-w-2xl mx-auto">Follow our four-step process to enroll in your desired academic stream.</p>
+                </div>
+                <div class="timeline-container py-4 max-w-4xl mx-auto">
+                    <!-- Step 1 -->
+                    <div class="flex flex-col md:flex-row items-center mb-12 timeline-node">
+                        <div class="w-full md:w-1/2 flex justify-start md:justify-end md:pr-10 pl-12 md:pl-0">
+                            <div class="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm w-full md:max-w-md">
+                                <span class="bg-amber-100 text-amber-800 font-bold text-xs px-3 py-1 rounded-full uppercase tracking-wider block w-fit mb-3">Step 01</span>
+                                <h3 class="font-display font-bold text-lg text-primary mb-2">Admission Enquiry</h3>
+                                <p class="text-slate-600 text-xs md:text-sm leading-relaxed">Fill out the online callback form on our website or visit the Alandi campus. Select your stream interest (Science or Commerce) and opt-in for competitive coaching.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="flex flex-col md:flex-row items-center mb-12 timeline-node">
+                        <div class="w-full md:w-1/2"></div>
+                        <div class="w-full md:w-1/2 flex justify-start pl-12 md:pl-10">
+                            <div class="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm w-full md:max-w-md">
+                                <span class="bg-amber-100 text-amber-800 font-bold text-xs px-3 py-1 rounded-full uppercase tracking-wider block w-fit mb-3">Step 02</span>
+                                <h3 class="font-display font-bold text-lg text-primary mb-2">Document Submission</h3>
+                                <p class="text-slate-600 text-xs md:text-sm leading-relaxed">Submit your Class 10th board marksheet, school leaving certificate, Aadhaar card copy, and passport size photographs for administrative verification.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="flex flex-col md:flex-row items-center mb-12 timeline-node">
+                        <div class="w-full md:w-1/2 flex justify-start md:justify-end md:pr-10 pl-12 md:pl-0">
+                            <div class="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm w-full md:max-w-md">
+                                <span class="bg-amber-100 text-amber-800 font-bold text-xs px-3 py-1 rounded-full uppercase tracking-wider block w-fit mb-3">Step 03</span>
+                                <h3 class="font-display font-bold text-lg text-primary mb-2">Stream & Coaching Selection</h3>
+                                <p class="text-slate-600 text-xs md:text-sm leading-relaxed">Meet with our expert academic counsellors to evaluate your career objectives and choose the appropriate integrated program.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="flex flex-col md:flex-row items-center timeline-node">
+                        <div class="w-full md:w-1/2"></div>
+                        <div class="w-full md:w-1/2 flex justify-start pl-12 md:pl-10">
+                            <div class="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm w-full md:max-w-md">
+                                <span class="bg-amber-100 text-amber-800 font-bold text-xs px-3 py-1 rounded-full uppercase tracking-wider block w-fit mb-3">Step 04</span>
+                                <h3 class="font-display font-bold text-lg text-primary mb-2">Seat Confirmation</h3>
+                                <p class="text-slate-600 text-xs md:text-sm leading-relaxed">Receive your admission confirmation card. Secure your seat by completing the fee payment and submitting physical documents.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Campus Directories Table -->
+            <section class="w-full max-w-container-max px-margin-mobile md:px-margin-desktop mb-20 mx-auto">
+                <div class="space-y-2 mb-6">
+                    <span class="text-secondary font-semibold text-sm tracking-wider uppercase">Branch Network</span>
+                    <h2 class="font-display text-3xl font-bold text-primary">Our Campuses & Enquiry Directories</h2>
+                </div>
+                <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm overflow-x-auto">
+                    <table class="w-full text-left text-xs md:text-sm">
+                        <thead class="bg-primary text-white font-semibold">
+                            <tr>
+                                <th class="py-4 px-6">Campus Location</th>
+                                <th class="py-4 px-6">Enquiry Phone Number</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-slate-700 divide-y divide-slate-200">
+                            <tr class="hover:bg-slate-50 transition-colors"><td class="py-4 px-6 font-semibold text-slate-900">Alandi (Main Campus)</td><td class="py-4 px-6 text-primary font-medium">+91 8208429912 / +91 8669662105</td></tr>
+                            <tr class="hover:bg-slate-50 transition-colors"><td class="py-4 px-6 font-semibold text-slate-900">Loni Kalbhor</td><td class="py-4 px-6 text-primary font-medium">+91 9767901061 / +91 8208429912</td></tr>
+                            <tr class="hover:bg-slate-50 transition-colors"><td class="py-4 px-6 font-semibold text-slate-900">Talegaon</td><td class="py-4 px-6 text-primary font-medium">+91 8999679144</td></tr>
+                            <tr class="hover:bg-slate-50 transition-colors"><td class="py-4 px-6 font-semibold text-slate-900">Pandharpur</td><td class="py-4 px-6 text-primary font-medium">+91 7720049904</td></tr>
+                            <tr class="hover:bg-slate-50 transition-colors"><td class="py-4 px-6 font-semibold text-slate-900">Sangli</td><td class="py-4 px-6 text-primary font-medium">+91 7058504525</td></tr>
+                            <tr class="hover:bg-slate-50 transition-colors"><td class="py-4 px-6 font-semibold text-slate-900">Solapur</td><td class="py-4 px-6 text-primary font-medium">+91 9552420404</td></tr>
+                            <tr class="hover:bg-slate-50 transition-colors"><td class="py-4 px-6 font-semibold text-slate-900">Barshi</td><td class="py-4 px-6 text-primary font-medium">+91 8421450709</td></tr>
+                            <tr class="hover:bg-slate-50 transition-colors"><td class="py-4 px-6 font-semibold text-slate-900">Nanded</td><td class="py-4 px-6 text-primary font-medium">+91 7447443095</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+
+<!-- ================= PAGE 5: FACULTY ================= -->
+        <div id="tab-faculty" class="tab-content">
+            <!-- Hero Banner -->
+            <section class="bg-primary text-white py-16 md:py-24 text-center">
+                <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop space-y-3">
+                    <span class="bg-white/10 text-tertiary-fixed text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider">Academic Mentors</span>
+                    <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold">Our Faculty & Staff</h1>
+                    <p class="text-slate-300 text-base max-w-2xl mx-auto">Meet our accomplished educators dedicated to academic rigor and career success.</p>
+                </div>
+            </section>
+
+            <!-- Faculty Filter Bar -->
+            <section class="border-b border-slate-200 bg-white py-4 sticky top-20 z-40 shadow-sm">
+                <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex items-center justify-between gap-4 overflow-x-auto">
+                    <div class="flex gap-2 mx-auto">
+                        <button onclick="filterFaculty('all')" class="fac-filter-btn px-5 py-2 rounded-lg bg-primary text-white text-xs font-semibold shadow-sm transition-all" data-cat="all">All Faculty (24)</button>
+                        <button onclick="filterFaculty('leadership')" class="fac-filter-btn px-5 py-2 rounded-lg text-slate-600 hover:bg-slate-100 text-xs font-semibold transition-all" data-cat="leadership">Leadership</button>
+                        <button onclick="filterFaculty('science')" class="fac-filter-btn px-5 py-2 rounded-lg text-slate-600 hover:bg-slate-100 text-xs font-semibold transition-all" data-cat="science">Science Dept</button>
+                        <button onclick="filterFaculty('commerce')" class="fac-filter-btn px-5 py-2 rounded-lg text-slate-600 hover:bg-slate-100 text-xs font-semibold transition-all" data-cat="commerce">Commerce Dept</button>
+                        <button onclick="filterFaculty('support')" class="fac-filter-btn px-5 py-2 rounded-lg text-slate-600 hover:bg-slate-100 text-xs font-semibold transition-all" data-cat="support">Admin & Support</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 md:py-16">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    
+                    <!-- Faculty 1: Dr. Sadashiv S. Kumbhar -->
+                    <div class="fac-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-cat="leadership science">
+                        <div class="bg-primary p-6 text-center text-white flex flex-col items-center relative">
+                            <img alt="Dr. Sadashiv S. Kumbhar" class="w-24 h-24 rounded-full object-cover border-4 border-white/20 shadow-md mb-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCROjDEs2FZXxRFh84h5Fh7J4eABsIIXdqXqKBPEOQGkx5akoJDpUQTKBk_0vowqoDtFEbBE0zTjPsIj5HQKMqgA_Nndaixeb2_ELnrfJoJzpoMnSlSSrpnXpW0MqEHVnqWRUR-hciTY__q5jD6Kjv74-SVLSZ-JRdOGsmF-8zaFN9Ci6B608wX315lN3nSZywn1xdERnK7fidrgueiI7iaAVf6i1M2STRGiA4maFAN73nQMixS1MXH8tGfPPV1EELw0A7w9HlVLzU">
+                            <span class="bg-amber-400 text-slate-900 text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full mb-1">Principal</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow text-center">
+                            <h3 class="font-display font-bold text-lg text-primary mb-1">Dr. Sadashiv S. Kumbhar</h3>
+                            <p class="text-xs font-semibold text-secondary uppercase mb-2">Principal & Senior Faculty - Physics</p>
+                            <p class="text-xs text-slate-500 mb-4 bg-slate-50 py-1 px-2 rounded">M.Sc., M.Ed, Ph.D, M.Phil (Physics)</p>
+                            <div class="mt-auto pt-3 border-t border-slate-100 text-left space-y-1.5 text-xs text-slate-600">
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">menu_book</span> <span>Physics Subject Expert</span></div>
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">workspace_premium</span> <span>34 Years Experience</span></div>
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-amber-600">military_tech</span> <span>B.Sc. Gold Medalist</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faculty 2: Dr. Omkar Inamdar -->
+                    <div class="fac-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-cat="leadership commerce">
+                        <div class="bg-primary p-6 text-center text-white flex flex-col items-center relative">
+                            <img alt="Dr. Omkar Inamdar" class="w-24 h-24 rounded-full object-cover border-4 border-white/20 shadow-md mb-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBs0NzXUZvIRrDTtFt1Hk7J3BsDRIi1YsaIqgiDRswx2FCxxtcF7gwF97uO6MK6dGuC4emDJLHcLxqK1m2eb-m412b98TnZAARf5HvVas9HDQTWJyTjK-kVbAYLKgMJPAPuCgMETcAgTPapBh1xGKcLuXtYXTR9EISOYJ1FRdo91TzxQZGlLMetzWILDUXlB8JR6oHOOpZgIV_KO3Dw8dqTGDfqGmoRsQtF4vfFsbJ7CaTZ6pOcGKi6EZasiC-VMnkZV2WD7n15v_Q">
+                            <span class="bg-amber-400 text-slate-900 text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full mb-1">Vice Principal</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow text-center">
+                            <h3 class="font-display font-bold text-lg text-primary mb-1">Dr. Omkar Inamdar</h3>
+                            <p class="text-xs font-semibold text-secondary uppercase mb-2">Vice Principal & English Lecturer</p>
+                            <p class="text-xs text-slate-500 mb-4 bg-slate-50 py-1 px-2 rounded">M.A., M.Phil, Ph.D</p>
+                            <div class="mt-auto pt-3 border-t border-slate-100 text-left space-y-1.5 text-xs text-slate-600">
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">menu_book</span> <span>Marketing & English Lit</span></div>
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">workspace_premium</span> <span>19 Years Experience</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faculty 3: Mr. Sachin Zambre -->
+                    <div class="fac-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-cat="science">
+                        <div class="bg-primary p-6 text-center text-white flex flex-col items-center relative">
+                            <img alt="Mr. Sachin Zambre" class="w-24 h-24 rounded-full object-cover border-4 border-white/20 shadow-md mb-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1944KypNhM2YXVO2y8_UGNyTw3iuqMKFHZ4_DNpFIFfzsP6owWpliRVyUwfzgbVY9p5wLgwjH7c-cE7phavn7cVrh0Hxk8z8Rf_LbCEXlC7og479ie4qV-F5nvDyYXxnqaGuL8GOlAwoeu6PfbNOwVyRtHhjfZtatynvaOXdMH9FhsheSVSf2cjUa2NNh1CxD4G00tf0WFPO5xySZsRCXPBX9KMR_DN3js48BfaRfMNNiX8oKyrDrGzmbBL_NJryOdLBwE-wnCY8">
+                            <span class="bg-blue-100 text-primary text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full mb-1">Science Faculty</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow text-center">
+                            <h3 class="font-display font-bold text-lg text-primary mb-1">Mr. Sachin Zambre</h3>
+                            <p class="text-xs font-semibold text-secondary uppercase mb-2">Lecturer- Physics</p>
+                            <p class="text-xs text-slate-500 mb-4 bg-slate-50 py-1 px-2 rounded">M.Sc., B.Ed.</p>
+                            <div class="mt-auto pt-3 border-t border-slate-100 text-left space-y-1.5 text-xs text-slate-600">
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">workspace_premium</span> <span>16 Years Experience</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faculty 4: Mr. Ajay Pathak -->
+                    <div class="fac-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-cat="science">
+                        <div class="bg-primary p-6 text-center text-white flex flex-col items-center relative">
+                            <img alt="Mr. Ajay Pathak" class="w-24 h-24 rounded-full object-cover border-4 border-white/20 shadow-md mb-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAumkLLk3R4jxjp1rGg7BM3eHLdpo4Uenoa9jINuXPe0_2e4We051nDiDalrzpHXwUku12OvMPhp7lAHNuL_vVCj4OjWmgqxuR6915yY5q82iuExtM_ELAWsP9czdH8G69dlBBqpN6wtRNS5sg8sK0-Kq-aBK0DqqPUjgy3q4lZLS0WE_nNTvT3hUcQtRYph1wbwhQG60m0PtdM2JtVGI-6cd3_7XWDp55P__80bo1oLSNvBUGI1-NhF9n9ol9ydCZ1xt9wvDhJEX4">
+                            <span class="bg-blue-100 text-primary text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full mb-1">Science Faculty</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow text-center">
+                            <h3 class="font-display font-bold text-lg text-primary mb-1">Mr. Ajay Pathak</h3>
+                            <p class="text-xs font-semibold text-secondary uppercase mb-2">Lecturer - Physics</p>
+                            <p class="text-xs text-slate-500 mb-4 bg-slate-50 py-1 px-2 rounded">M.Tech.</p>
+                            <div class="mt-auto pt-3 border-t border-slate-100 text-left space-y-1.5 text-xs text-slate-600">
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">workspace_premium</span> <span>15 Years Experience</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faculty 5: Mr. Harpreet Singh -->
+                    <div class="fac-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-cat="science">
+                        <div class="bg-primary p-6 text-center text-white flex flex-col items-center relative">
+                            <img alt="Mr. Harpreet Singh" class="w-24 h-24 rounded-full object-cover border-4 border-white/20 shadow-md mb-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDKsXiEhKszXTzfet3B0aaQuCTUzdoLFo5JPxNCa43iwoai9aOpMaDmVu30jZEsExNZW5X_V6T8_2Xhn8WbFDsuQ5RGokQWPwl4-sfeZ83o9HZjYkHld58Kove3cb7SkNRZVBDsG_yjixn82UwuR7z_qo1tQKVBvQlVjsLWVHZScUOm73KI_KlHWAYDV4R31PiKgRh0ZVAsur5PPSkgPYKlArvEU-Q20vxmQ7KOEgwilCR0MbqJF_nLOzbvrriUecU5gl8X7yIRc0">
+                            <span class="bg-blue-100 text-primary text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full mb-1">Science Faculty</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow text-center">
+                            <h3 class="font-display font-bold text-lg text-primary mb-1">Mr. Harpreet Singh</h3>
+                            <p class="text-xs font-semibold text-secondary uppercase mb-2">Lecturer - Physics</p>
+                            <p class="text-xs text-slate-500 mb-4 bg-slate-50 py-1 px-2 rounded">M.Sc. B.Ed (Pursuing)</p>
+                            <div class="mt-auto pt-3 border-t border-slate-100 text-left space-y-1.5 text-xs text-slate-600">
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">workspace_premium</span> <span>4 Years Experience</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faculty 6: Ms. Smita Kashid -->
+                    <div class="fac-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-cat="science">
+                        <div class="bg-primary p-6 text-center text-white flex flex-col items-center relative">
+                            <img alt="Ms. Smita Kashid" class="w-24 h-24 rounded-full object-cover border-4 border-white/20 shadow-md mb-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChCg3aLCZcxxGGuyHPeIPfoJgAO6jbHjmpvztJX48DblF1hS6I3u2qwriNjGOVsTRsC4SfQaaSERE4rQg60Vzc4K7g7qvcFBhTPY7SUbdv9q03on43G7zhGFrePTNu1HWb1Rr-1iFx3yZHXhMX02LeD2gGcWTbbS34O1GekRbRdAN4vTUgVZ4ag8gGpXNOszu9cHrSPmy1wUH_vYR2A4Gp5G41CkO44JZoKMNelkwxHw9Zoz4BYjid3lL5cnNAlTq8XCstjzAt0EQ">
+                            <span class="bg-blue-100 text-primary text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full mb-1">Science Faculty</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow text-center">
+                            <h3 class="font-display font-bold text-lg text-primary mb-1">Ms. Smita Kashid</h3>
+                            <p class="text-xs font-semibold text-secondary uppercase mb-2">Lecturer - Mathematics</p>
+                            <p class="text-xs text-slate-500 mb-4 bg-slate-50 py-1 px-2 rounded">M.Tech., B.Ed.</p>
+                            <div class="mt-auto pt-3 border-t border-slate-100 text-left space-y-1.5 text-xs text-slate-600">
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">workspace_premium</span> <span>15 Years Experience</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faculty 7: Mr. Madasu Rakesh -->
+                    <div class="fac-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-cat="science">
+                        <div class="bg-primary p-6 text-center text-white flex flex-col items-center relative">
+                            <img alt="Mr. Madasu Rakesh" class="w-24 h-24 rounded-full object-cover border-4 border-white/20 shadow-md mb-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPgydCX_FU_r7zUIGa98cbc7d_T_PCQFdTjT8A2lmBXH7MhFc9gyfuvRmE77QKRQtdjCvKgMsKi7gsiLyKeB8kg5groUrNLEZK-oRpnZfQYfjWa0nLDB1Ota5OLJzzw8s2_0EU4c3D4Q6lTyXS3ftLIUib5YPuXAPSwR-TeIczcLmfEFPJliKphknLLiNyyDaM0ctxakn6feT_bNQi0x4nL8Q3wv7Qhs6MrVoHQ_bXYGPPFi4Vod9LWDkYTwUb3AgYxbMKBcgDQ_c">
+                            <span class="bg-blue-100 text-primary text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full mb-1">Science Faculty</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow text-center">
+                            <h3 class="font-display font-bold text-lg text-primary mb-1">Mr. Madasu Rakesh</h3>
+                            <p class="text-xs font-semibold text-secondary uppercase mb-2">Lecturer- Mathematics</p>
+                            <p class="text-xs text-slate-500 mb-4 bg-slate-50 py-1 px-2 rounded">B.Tech.</p>
+                            <div class="mt-auto pt-3 border-t border-slate-100 text-left space-y-1.5 text-xs text-slate-600">
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">workspace_premium</span> <span>14 Years Experience</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faculty 8: Mr. Bimlesh Kumar Dubey -->
+                    <div class="fac-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-cat="science">
+                        <div class="bg-primary p-6 text-center text-white flex flex-col items-center relative">
+                            <img alt="Mr. Bimlesh Kumar Dubey" class="w-24 h-24 rounded-full object-cover border-4 border-white/20 shadow-md mb-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6FsGk_JpAeyoNPp72xAuXbwLLWmVRXq4Mezx-mRvauWiTMNIhEng2BR02QqsmEXwY_apFp9KIfeDww7CGOp68U5AdTkEJBEoWgS3tBlR4WiqAw7K8LNyim-I99mDO2fmdE6KTtXmEii4TZYIVxtx7jm4pzr4C_pPA-omUMPwHPWYL4cC5SQyM0ob404pJ2G6rrFth2FAEzpqsob66oOCpZi9Bx31QFb4jLQcoP3-emI2DvU_Iw98zjH4qBr4CU7KRwVuaISUU26w">
+                            <span class="bg-blue-100 text-primary text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full mb-1">Science Faculty</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow text-center">
+                            <h3 class="font-display font-bold text-lg text-primary mb-1">Mr. Bimlesh Dubey</h3>
+                            <p class="text-xs font-semibold text-secondary uppercase mb-2">Lecturer- Mathematics</p>
+                            <p class="text-xs text-slate-500 mb-4 bg-slate-50 py-1 px-2 rounded">B.Tech (AKTU Lucknow)</p>
+                            <div class="mt-auto pt-3 border-t border-slate-100 text-left space-y-1.5 text-xs text-slate-600">
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">workspace_premium</span> <span>5 Years Experience</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faculty 9: Ms. Aishwarya Gaikwad -->
+                    <div class="fac-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-cat="science">
+                        <div class="bg-primary p-6 text-center text-white flex flex-col items-center relative">
+                            <img alt="Ms. Aishwarya Gaikwad" class="w-24 h-24 rounded-full object-cover border-4 border-white/20 shadow-md mb-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeCKLR8CQ-tQjCt_i8elPqgR_O44y9XuK9_drG6pBJJt7G1cKUjbI8M9F2Aq_3K-v7cjcwx8sIib63As2EatoMEPmPrQQ8DezxXqzptrPRH5qwOCHiIUYRtjtlnS_2_VkHvw3URxVJhV6rh0Q9OjB2HJeU1UcLjWXJlSvc64KqwfNF_8184h1JLTTWDiNiU0OuA2bJBNAqZ17kJHCK0MJ83zUlPbczZM6qqwTU-JpyTQUYPMrt3Zk8gsXGKGs4eCfURNLBeosC7f4">
+                            <span class="bg-blue-100 text-primary text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full mb-1">Science Faculty</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow text-center">
+                            <h3 class="font-display font-bold text-lg text-primary mb-1">Ms. Aishwarya Gaikwad</h3>
+                            <p class="text-xs font-semibold text-secondary uppercase mb-2">Lecturer - Mathematics</p>
+                            <p class="text-xs text-slate-500 mb-4 bg-slate-50 py-1 px-2 rounded">M.Sc. B.Ed, SET</p>
+                            <div class="mt-auto pt-3 border-t border-slate-100 text-left space-y-1.5 text-xs text-slate-600">
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">workspace_premium</span> <span>1 Year Experience</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faculty 10: Mr. Panala Suresh Reddy -->
+                    <div class="fac-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-cat="science">
+                        <div class="bg-primary p-6 text-center text-white flex flex-col items-center relative">
+                            <img alt="Mr. Panala Suresh Reddy" class="w-24 h-24 rounded-full object-cover border-4 border-white/20 shadow-md mb-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiPXJQN6Ege-W74FCajFsPuNHVYDlACJkZLkC6TNOGLD0QiIQ8LIY9JUxsuWIQUsfP3XThuXnEz33Zx9i38enLcJPHbWCrwvO_TOsjY3Ul7S-9mP-s4Qa6OCtRd9Zb9NZEMMmGDGf3IqUUVGmdVqA_9VBIqJhP1mkQhnNVgR8g8QGLAwvTl4OFwA48C3YhoqtIqnydcD24JrNSpMqHLbmnfIbORb9YWr6J3jf6HCo515J9rxEv4bpf2l0usWp1pTzX36nP37coOLQ">
+                            <span class="bg-blue-100 text-primary text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full mb-1">Science Faculty</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow text-center">
+                            <h3 class="font-display font-bold text-lg text-primary mb-1">Mr. P. Suresh Reddy</h3>
+                            <p class="text-xs font-semibold text-secondary uppercase mb-2">Senior Lecturer - Chemistry</p>
+                            <p class="text-xs text-slate-500 mb-4 bg-slate-50 py-1 px-2 rounded">M.Sc., B.Ed. (Osmania Univ)</p>
+                            <div class="mt-auto pt-3 border-t border-slate-100 text-left space-y-1.5 text-xs text-slate-600">
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">workspace_premium</span> <span>17 Years Experience</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faculty 11: Mr. Shivjee Gupta -->
+                    <div class="fac-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-cat="science">
+                        <div class="bg-primary p-6 text-center text-white flex flex-col items-center relative">
+                            <img alt="Mr. Shivjee Gupta" class="w-24 h-24 rounded-full object-cover border-4 border-white/20 shadow-md mb-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-gKXqLSDf2UpQfOoGaGZq1QOxRefkBIO9DO_riTzqckP1lhwa7JZnwU_uLrZVfDiPso38lWK54lj5jL5Iq6--9pDnyssqO5RQwMA2DsViUVLDgpV0jKSkeSIJvYABtqkprwISAZ9xzMCVP9qd_k4zKGDzqiwDO4Y1g9cjWs1bvP6-3hTpV_E2GbVBp4OexqxtEobKVyY8hRVqvV538aqGV__wwOc3BfX6Hkwn4TKxWvpFqg9pBjhFt2ilZzliheZ-MlJ3UgswTsY">
+                            <span class="bg-blue-100 text-primary text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full mb-1">Science Faculty</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow text-center">
+                            <h3 class="font-display font-bold text-lg text-primary mb-1">Mr. Shivjee Gupta</h3>
+                            <p class="text-xs font-semibold text-secondary uppercase mb-2">Lecturer- Chemistry</p>
+                            <p class="text-xs text-slate-500 mb-4 bg-slate-50 py-1 px-2 rounded">B.Tech + M.Sc Chemistry</p>
+                            <div class="mt-auto pt-3 border-t border-slate-100 text-left space-y-1.5 text-xs text-slate-600">
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">workspace_premium</span> <span>8 Years Experience</span></div>
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-amber-600">military_tech</span> <span>M.Sc Gold Medalist</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faculty 12: Mr. Kiran Kolte -->
+                    <div class="fac-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-cat="science">
+                        <div class="bg-primary p-6 text-center text-white flex flex-col items-center relative">
+                            <img alt="Mr. Kiran Kolte" class="w-24 h-24 rounded-full object-cover border-4 border-white/20 shadow-md mb-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2e5_kxcmAdUGHaN3-2HftfDwqXNF3Bm0pGWfQG68_19b_UenBwqO9v5GuRCxOQSMdAwFJOvBIKcP3SrVMIwvaXBeVDRN-SMIJketjvq84Gk8e3qOmMMN5xZgd20RSIF3ixSan3DShMpSXKnoaKO1DqlnCsgUrWey-XCYy4PKFiItM5H7oBrAzfr-qdTlmJZdBx_bWQisiXHJeNr9YFhGXumDVbb2uO-vTbcw1R_fD-QoGFO6lwV-pNohEm2XsI7gKHG2srx-N8jg">
+                            <span class="bg-blue-100 text-primary text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full mb-1">Science Faculty</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow text-center">
+                            <h3 class="font-display font-bold text-lg text-primary mb-1">Mr. Kiran Kolte</h3>
+                            <p class="text-xs font-semibold text-secondary uppercase mb-2">Senior Lecturer - Biology</p>
+                            <p class="text-xs text-slate-500 mb-4 bg-slate-50 py-1 px-2 rounded">M.Sc., B.Ed.</p>
+                            <div class="mt-auto pt-3 border-t border-slate-100 text-left space-y-1.5 text-xs text-slate-600">
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">workspace_premium</span> <span>15 Years Experience</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faculty 13: Mr. Shrikant Achole -->
+                    <div class="fac-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-cat="science">
+                        <div class="bg-primary p-6 text-center text-white flex flex-col items-center relative">
+                            <img alt="Mr. Shrikant Achole" class="w-24 h-24 rounded-full object-cover border-4 border-white/20 shadow-md mb-2" src="https://i.ibb.co/ycK5Y4zD/1785244809890.png">
+                            <span class="bg-blue-100 text-primary text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full mb-1">CS Dept</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow text-center">
+                            <h3 class="font-display font-bold text-lg text-primary mb-1">Mr. Shrikant Achole</h3>
+                            <p class="text-xs font-semibold text-secondary uppercase mb-2">Lecturer - Computer Science</p>
+                            <p class="text-xs text-slate-500 mb-4 bg-slate-50 py-1 px-2 rounded">M.Sc. (Computer Science)</p>
+                            <div class="mt-auto pt-3 border-t border-slate-100 text-left space-y-1.5 text-xs text-slate-600">
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">workspace_premium</span> <span>17 Years Experience</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faculty 14: Mrs. Monali B. Deshmukh -->
+                    <div class="fac-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-cat="science">
+                        <div class="bg-primary p-6 text-center text-white flex flex-col items-center relative">
+                            <img alt="Mrs. Monali Deshmukh" class="w-24 h-24 rounded-full object-cover border-4 border-white/20 shadow-md mb-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhjRJ7PuwDJMHlPZGwwfhLnVcNbwLZwEQ39PKd6J6RPW1Y28Hh1_wEk7EZKMIhjk2-8ctbdfqWL081akuKLEpT-M5nNoJ4nxgoiLAj2BMZtbiFH_YxVUAzjhfGtIA4vNFzRH54GC9VEUZMp2q0mGXyyevJ0uR7tgq_y0BB6bq1pjJC9Xq22HLkJbcnAklVpzueZx4zrsGYvHEOOPwzyotBTqXA7cBO7E5ewGi2OW0FH5yJQ7bdQKdpXYWKzqUqziVPBbsAusNrQ80">
+                            <span class="bg-blue-100 text-primary text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full mb-1">Science Faculty</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow text-center">
+                            <h3 class="font-display font-bold text-lg text-primary mb-1">Mrs. Monali B. Deshmukh</h3>
+                            <p class="text-xs font-semibold text-secondary uppercase mb-2">Lecturer - Electronics</p>
+                            <p class="text-xs text-slate-500 mb-4 bg-slate-50 py-1 px-2 rounded">M.Sc. (Electronics), B.Ed.</p>
+                            <div class="mt-auto pt-3 border-t border-slate-100 text-left space-y-1.5 text-xs text-slate-600">
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">workspace_premium</span> <span>12 Years Experience</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faculty 15: Mr. Lalit Potdar -->
+                    <div class="fac-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-cat="science">
+                        <div class="bg-primary p-6 text-center text-white flex flex-col items-center relative">
+                            <img alt="Mr. Lalit Potdar" class="w-24 h-24 rounded-full object-cover border-4 border-white/20 shadow-md mb-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOEO1dkotE-Evpbn0cHipVzwjG1CgjHkA71c215QWLOXTZZWtFWN3be6H0K1xPvhZFFV0ZENUdKIpL5qs3nF3SnXYZjlCQpniUM4cil77hP8J8aCZbsWC5OTrHx_qJv4Z4ji14j4FJjNsH1-kV6OBcymtQEiPvuzxKY1FGwJs06EICvR0JM3uWTbXfTTATmp93iioFsXzeJKjtenl_DDeZM4lR172XO5ebuPBbltnbLF94qmT-w6OE_erg3B8rAF0XevcnOmagvAU">
+                            <span class="bg-blue-100 text-primary text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full mb-1">IT Dept</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow text-center">
+                            <h3 class="font-display font-bold text-lg text-primary mb-1">Mr. Lalit Potdar</h3>
+                            <p class="text-xs font-semibold text-secondary uppercase mb-2">Lecturer - IT</p>
+                            <p class="text-xs text-slate-500 mb-4 bg-slate-50 py-1 px-2 rounded">M.C.A, B.Ed</p>
+                            <div class="mt-auto pt-3 border-t border-slate-100 text-left space-y-1.5 text-xs text-slate-600">
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">workspace_premium</span> <span>11 Years Experience</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faculty 16: Mr. Prashant Shishupal -->
+                    <div class="fac-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-cat="commerce science">
+                        <div class="bg-primary p-6 text-center text-white flex flex-col items-center relative">
+                            <img alt="Mr. Prashant Shishupal" class="w-24 h-24 rounded-full object-cover border-4 border-white/20 shadow-md mb-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzS0piBLnmP-iiOlWZikszniYivAuMLZ2ESt5WULn1Y3xi9jqXAIT8hK8C12FYvwxh_L-gE3hplmqUzUr-sWJ6bKQr7sKk-gmRd61N0BXPuXlThjaAjWtt2S9-2A0_IPoVwB4ZCnzQM4X1Ay-1d9lNYcSybGISfwcNMp_X6UERxdcu4lMXqOXuaB6LgfxFsUgzthESaN6jfrGjvLJGhV7oKLziXvgzCdAzPkIZxPOI-PdvzyCQMyOCaCBS1cnjblFW3JVh8NXbm6A">
+                            <span class="bg-purple-100 text-purple-800 text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full mb-1">Languages</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow text-center">
+                            <h3 class="font-display font-bold text-lg text-primary mb-1">Mr. Prashant Shishupal</h3>
+                            <p class="text-xs font-semibold text-secondary uppercase mb-2">Lecturer - English</p>
+                            <p class="text-xs text-slate-500 mb-4 bg-slate-50 py-1 px-2 rounded">M.A. (English), B.Ed. (SET)</p>
+                            <div class="mt-auto pt-3 border-t border-slate-100 text-left space-y-1.5 text-xs text-slate-600">
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">workspace_premium</span> <span>12 Years Experience</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faculty 17: Mrs. Suman Yadav -->
+                    <div class="fac-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-cat="commerce">
+                        <div class="bg-primary p-6 text-center text-white flex flex-col items-center relative">
+                            <img alt="Mrs. Suman Yadav" class="w-24 h-24 rounded-full object-cover border-4 border-white/20 shadow-md mb-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6kx4YqSb8rzANHX_UUpk3mPmjhKG2rZmtwmRIHi4QWvAfBbopR9e4aoJJlP9-B_BcIY2Twc8Fp56qiaU1MWn4JxftJ50qFW1EMHvtepSyrXyvpJDBBlmggxDrBneh9geksYY68pGVInK_O1mPXRK5XcHm6BolVVfn3crPb7j6HdsAYX3KkRblGeS9pSfdGk-qvcGZY28REgTHkwWVU5IhanVNSeSY7EQioyWxYWrF8ZoOYdahoaZ4KyBEMsGKeDMz73iTCiDWESs">
+                            <span class="bg-orange-100 text-secondary text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full mb-1">Commerce Faculty</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow text-center">
+                            <h3 class="font-display font-bold text-lg text-primary mb-1">Mrs. Suman Yadav</h3>
+                            <p class="text-xs font-semibold text-secondary uppercase mb-2">Lecturer - OCM & SP</p>
+                            <p class="text-xs text-slate-500 mb-4 bg-slate-50 py-1 px-2 rounded">M.Com., B.Ed.</p>
+                            <div class="mt-auto pt-3 border-t border-slate-100 text-left space-y-1.5 text-xs text-slate-600">
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">workspace_premium</span> <span>11 Years Experience</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faculty 18: Mr. Shridhar Deshmukh -->
+                    <div class="fac-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-cat="commerce">
+                        <div class="bg-primary p-6 text-center text-white flex flex-col items-center relative">
+                            <img alt="Mr. Shridhar Deshmukh" class="w-24 h-24 rounded-full object-cover border-4 border-white/20 shadow-md mb-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcpVm9_THZVeBl8a37j93wiHi4aVKkWRw3cddG1l9QReStBfVVO-yWhaqYgnk1wQYKBZmrXSo1_csazhLtzLAeMBfakDEjy66FA2AQZxSV7IvE1fHs6Zie_manrvu7VsfweaDlVIfPzfs23iqht_0hesct6MgAo1FME0c-IPaeXhG61tPrVCorXXKb4MnV1y9X0CyhDB_iTs6SzkvVK9TVfuH9Hu5H6JUHuzKtbvVNxVeQ6DMIWHNWSYS-VTBjYVrx_Y77SN9uf2E">
+                            <span class="bg-orange-100 text-secondary text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full mb-1">Commerce Faculty</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow text-center">
+                            <h3 class="font-display font-bold text-lg text-primary mb-1">Mr. Shridhar Deshmukh</h3>
+                            <p class="text-xs font-semibold text-secondary uppercase mb-2">Lecturer - SP / Economics</p>
+                            <p class="text-xs text-slate-500 mb-4 bg-slate-50 py-1 px-2 rounded">M.Com., B.Ed.</p>
+                            <div class="mt-auto pt-3 border-t border-slate-100 text-left space-y-1.5 text-xs text-slate-600">
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">workspace_premium</span> <span>6 Years Experience</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faculty 19: Mr. Furkhan Kumthe -->
+                    <div class="fac-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-cat="commerce">
+                        <div class="bg-primary p-6 text-center text-white flex flex-col items-center relative">
+                            <img alt="Mr. Furkhan Kumthe" class="w-24 h-24 rounded-full object-cover border-4 border-white/20 shadow-md mb-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARm_uibVt3J2ZvJr2H4mGf1tHAea76xJL6lJgCnRg29tX8dbd_DExtbaVEjd8G-h3aWtRLRJRoL82F52jUv7iJNx-iWM1CW34VwoeGvYCfZbQMMyR60d-aBskWPeyh-ag6gB93G2RdoQEkxGsNRuxw-sqZGE0GhOlZsg5aC_FMnZlEkslHJ57BBJLwNLiz1hoCqzF3dN0qpjc9UiWK5JDOtA1TGSN3GpNHgo3Bekll7EONs3kXGItCbjdEl3yiKxzvNKwtqERnJyE">
+                            <span class="bg-orange-100 text-secondary text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full mb-1">Commerce Faculty</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow text-center">
+                            <h3 class="font-display font-bold text-lg text-primary mb-1">Mr. Furkhan Kumthe</h3>
+                            <p class="text-xs font-semibold text-secondary uppercase mb-2">Lecturer - Accountancy & Economics</p>
+                            <p class="text-xs text-slate-500 mb-4 bg-slate-50 py-1 px-2 rounded">M.Com, B.Ed, GDCA, PhD (Appeared)</p>
+                            <div class="mt-auto pt-3 border-t border-slate-100 text-left space-y-1.5 text-xs text-slate-600">
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">workspace_premium</span> <span>17 Years Experience</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faculty 20: Mr. Amit Shenkar -->
+                    <div class="fac-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-cat="commerce">
+                        <div class="bg-primary p-6 text-center text-white flex flex-col items-center relative">
+                            <img alt="Mr. Amit Shenkar" class="w-24 h-24 rounded-full object-cover border-4 border-white/20 shadow-md mb-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCUeXpwCE5Gj3qqFUZVVGRb2IjFaIZw-SiaFM4fQG9Ham4jx218bmzWYNClZpj4oLlwHi4bhzuNxV2wP7hlCHGVLBQ3HY-j5Ci5TD6-U-coe0GH-Nec6-l893Iz7Imc1yWSmvwaYgIsOmwBxYPzU7QTkA7Joasc706ENXBh-PcxcjWwQ7SczQnNGdBcou8gMAw1NK5Hn0aespOHoy3OSVoHB4E3H78UvoJzVl69Nl20Z3GjT-XBOOtP2TmukFOddQKZfSPOKd46Hw">
+                            <span class="bg-orange-100 text-secondary text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full mb-1">Commerce Faculty</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow text-center">
+                            <h3 class="font-display font-bold text-lg text-primary mb-1">Mr. Amit Shenkar</h3>
+                            <p class="text-xs font-semibold text-secondary uppercase mb-2">Lecturer - Book Keeping Accountancy</p>
+                            <p class="text-xs text-slate-500 mb-4 bg-slate-50 py-1 px-2 rounded">M.Com, B.Ed, MBA, CA- Final</p>
+                            <div class="mt-auto pt-3 border-t border-slate-100 text-left space-y-1.5 text-xs text-slate-600">
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">workspace_premium</span> <span>5 Years Experience</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faculty 21: Mr. Akshay Jagtap -->
+                    <div class="fac-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-cat="support">
+                        <div class="bg-primary p-6 text-center text-white flex flex-col items-center relative">
+                            <img alt="Mr. Akshay Jagtap" class="w-24 h-24 rounded-full object-cover border-4 border-white/20 shadow-md mb-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDz4cZvMWF8MrZzGjJkwf3g6R3j8o_rCyx5xohYvMAAix5kR7L_yps7a9_DPRgYS5K9MmMwjl1L4Z8tIz9wWEh6zFu7y4Sl0xpi65ybia1jdiBf6p5b3EksXVeX5T6s80SuHXWEg6PMVMXTVbaJmOkBD6_MOgFiLccDvsfrwVJiUYuqjuZwZSPBx9TPuOtlrHou14ONNOlz6PkCEdZkDsX4HO-T_tAaWC10kB-pbSNwH8gUpuHPeVNGiKFnvfWpOdtkPAqfdVWn02g">
+                            <span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full mb-1">Sports & PE</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow text-center">
+                            <h3 class="font-display font-bold text-lg text-primary mb-1">Mr. Akshay Jagtap</h3>
+                            <p class="text-xs font-semibold text-secondary uppercase mb-2">Lecturer - Physical Education</p>
+                            <p class="text-xs text-slate-500 mb-4 bg-slate-50 py-1 px-2 rounded">M.A. (Geography), B.P.Ed</p>
+                            <div class="mt-auto pt-3 border-t border-slate-100 text-left space-y-1.5 text-xs text-slate-600">
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">workspace_premium</span> <span>5 Years Experience</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faculty 22: Mr. Yogesh Bandal -->
+                    <div class="fac-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-cat="support">
+                        <div class="bg-primary p-6 text-center text-white flex flex-col items-center relative">
+                            <img alt="Mr. Yogesh Bandal" class="w-24 h-24 rounded-full object-cover border-4 border-white/20 shadow-md mb-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0ZSkj1mA0t9bYDf0If7_aF77268UtTLpL80Ha9x78WzcEBFECXTm8RFCkI_Se_jlB-CBit4z0kcEhmgsejGOPLoTpj67azKOHTG6_Rui3K1EyViDwDezC8SJDRxCO6IziYYxIRsS_L2eIJzs3SKPEKiUHhpJtHD4PL8DG0fCXaFQWc_AuG74ZZcpfa8dlI-c29wXp2AVnkbASL8uqOFDMXgmb3vjpDiI4A2qVuilhMF4bSUf1kLjF1xYoxUvfjMlNXWTLJx4GroE">
+                            <span class="bg-slate-100 text-slate-700 text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full mb-1">Administration</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow text-center">
+                            <h3 class="font-display font-bold text-lg text-primary mb-1">Mr. Yogesh Bandal</h3>
+                            <p class="text-xs font-semibold text-secondary uppercase mb-2">Admin Executive</p>
+                            <p class="text-xs text-slate-500 mb-4 bg-slate-50 py-1 px-2 rounded">B.A.</p>
+                            <div class="mt-auto pt-3 border-t border-slate-100 text-left space-y-1.5 text-xs text-slate-600">
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">workspace_premium</span> <span>15 Years Experience</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faculty 23: Mrs. Ruhi Orpe -->
+                    <div class="fac-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-cat="support">
+                        <div class="bg-primary p-6 text-center text-white flex flex-col items-center relative">
+                            <img alt="Mrs. Ruhi Orpe" class="w-24 h-24 rounded-full object-cover border-4 border-white/20 shadow-md mb-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB57gnGjUXN92Q77f99Cmo1ncLhgNIH5sv7fcSyqnCjMLjUfC1EylMZ82bhcCcAE1Sa56m0X6J4b7r53PwEFgu1w8aRJ48HmFKutqkEeepXxIAmVI5hsQ2RvtmWsvdyC4S4p-uA5Xyw4z6hbSrW3NiT_sucwg45MjmWajTMXbZTQt-a7NFBxqtz9LO4V1AZUn-YKtBQu3Sn87Ihb267vXlH7O5fD9kjcIPKdamNCHmnFt9S53IylUBUosR-QrNqGl4ji3gmnmw9PoA">
+                            <span class="bg-slate-100 text-slate-700 text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full mb-1">Library & Admin</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow text-center">
+                            <h3 class="font-display font-bold text-lg text-primary mb-1">Mrs. Ruhi Orpe</h3>
+                            <p class="text-xs font-semibold text-secondary uppercase mb-2">Librarian & Exam Asst.</p>
+                            <p class="text-xs text-slate-500 mb-4 bg-slate-50 py-1 px-2 rounded">M.A., M.Lib. & I.Sc.</p>
+                            <div class="mt-auto pt-3 border-t border-slate-100 text-left space-y-1.5 text-xs text-slate-600">
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">workspace_premium</span> <span>19 Years Experience</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faculty 24: Mr. Somnath Shinde -->
+                    <div class="fac-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-cat="support">
+                        <div class="bg-primary p-6 text-center text-white flex flex-col items-center relative">
+                            <img alt="Mr. Somnath Shinde" class="w-24 h-24 rounded-full object-cover border-4 border-white/20 shadow-md mb-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmBLe13JI4YKPkD4NcS8NT_xQWb2xq07bmjOJ9laBr368M9hX86QO998yqJHlIqMR1LnrS2Un_nJn4MzPDURUtMxEWEow97SuILXl2NCkxE4m6qqLSdfcqC4UMfZjEvQRN6fRVikCLAXdCAA1ISZA8t-BFFF6VOZoIpkHGYlYmdqbrC-gJZwODfegVO7tKoDqevzV2ZSlHB7yo-hxfzvtTceBwYf69MejFhhTcJGpPUBjmJPjmEeSUVNv2IsCfsKp0oruyGEYuhK0">
+                            <span class="bg-slate-100 text-slate-700 text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full mb-1">Office Support</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow text-center">
+                            <h3 class="font-display font-bold text-lg text-primary mb-1">Mr. Somnath Shinde</h3>
+                            <p class="text-xs font-semibold text-secondary uppercase mb-2">Office Support (Peon)</p>
+                            <p class="text-xs text-slate-500 mb-4 bg-slate-50 py-1 px-2 rounded">HSC</p>
+                            <div class="mt-auto pt-3 border-t border-slate-100 text-left space-y-1.5 text-xs text-slate-600">
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">workspace_premium</span> <span>10 Years Experience</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+        
+        <!-- ================= PAGE 6: CONTACT ================= -->
+        <div id="tab-contact" class="tab-content">
+            <!-- Hero Banner -->
+            <section class="bg-primary text-white py-16 md:py-24 text-center">
+                <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop space-y-3">
+                    <span class="bg-white/10 text-tertiary-fixed text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider">Connect With Us</span>
+                    <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold">Get in Touch</h1>
+                    <p class="text-slate-300 text-base max-w-2xl mx-auto">We welcome inquiries from prospective students, parents, and partners. Contact us to learn more about our academic programs.</p>
+                </div>
+            </section>
+
+            <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 md:py-16">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+  <div class="lg:col-span-7 bg-white border border-slate-200 rounded-2xl p-8 shadow-sm">
+    <h2 class="font-display font-bold text-2xl text-primary mb-6">Send us a Message</h2>
+    
+    <form action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
+        <!-- Paste your Web3Forms Access Key inside value below -->
+        <input type="hidden" name="access_key" value="bd5226df-af89-4bbe-8bd8-c1aef71bd48e">
+
+        <!-- Email Subject Line -->
+        <input type="hidden" name="subject" value="New Admission Enquiry - MIT Junior College">
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div class="flex flex-col gap-1.5">
+                <label class="text-xs font-semibold text-slate-700" for="firstName">First Name</label>
+                <input class="border border-slate-200 rounded-xl p-3 bg-slate-50 text-sm focus:bg-white focus:border-primary focus:outline-none transition-all" id="firstName" name="First Name" type="text" required placeholder="John">
+            </div>
+            <div class="flex flex-col gap-1.5">
+                <label class="text-xs font-semibold text-slate-700" for="lastName">Last Name</label>
+                <input class="border border-slate-200 rounded-xl p-3 bg-slate-50 text-sm focus:bg-white focus:border-primary focus:outline-none transition-all" id="lastName" name="Last Name" type="text" required placeholder="Doe">
+            </div>
+        </div>
+
+        <div class="flex flex-col gap-1.5">
+            <label class="text-xs font-semibold text-slate-700" for="email">Email Address</label>
+            <input class="border border-slate-200 rounded-xl p-3 bg-slate-50 text-sm focus:bg-white focus:border-primary focus:outline-none transition-all" id="email" name="Email" type="email" required placeholder="john@example.com">
+        </div>
+
+        <div class="flex flex-col gap-1.5">
+            <label class="text-xs font-semibold text-slate-700" for="subject">Subject / Interest</label>
+            <select class="border border-slate-200 rounded-xl p-3 bg-slate-50 text-sm focus:bg-white focus:border-primary focus:outline-none transition-all" id="subject" name="Inquiry Type">
+                <option>Admissions Inquiry (Science)</option>
+                <option>Admissions Inquiry (Commerce)</option>
+                <option>General Information</option>
+            </select>
+        </div>
+
+        <div class="flex flex-col gap-1.5">
+            <label class="text-xs font-semibold text-slate-700" for="message">Message</label>
+            <textarea class="border border-slate-200 rounded-xl p-3 bg-slate-50 text-sm focus:bg-white focus:border-primary focus:outline-none transition-all resize-none" id="message" name="Message" rows="4" required placeholder="Write your message here..."></textarea>
+        </div>
+
+        <button class="bg-primary text-white px-8 py-3.5 rounded-xl font-semibold text-sm hover:bg-primary-hover transition-all shadow-md w-full sm:w-auto" type="submit">
+            Submit Message
+        </button>
+    </form>
+</div>
+
+                                                                                                                                                                                                                                                                 
+
+<div class="lg:col-span-5 flex flex-col gap-6">
+                        <div class="bg-white border border-slate-200 rounded-2xl p-8 shadow-sm">
+                            <h2 class="font-display font-bold text-2xl text-primary mb-6">Contact Information</h2>
+                            <div class="space-y-6">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 rounded-xl bg-orange-50 text-secondary flex items-center justify-center shrink-0">
+                                        <span class="material-symbols-outlined text-xl">location_on</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-display font-bold text-base text-primary">Main Campus</h3>
+                                        <p class="text-xs md:text-sm text-slate-600 mt-0.5">Dehu Phata, Alandi (Devachi)<br>Pune - 412105, Maharashtra, India</p>
+                                    </div>
+                                </div>
+                                <div class="h-px bg-slate-100 w-full"></div>
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 rounded-xl bg-blue-50 text-primary flex items-center justify-center shrink-0">
+                                        <span class="material-symbols-outlined text-xl">call</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-display font-bold text-base text-primary">Admissions Helpline</h3>
+                                        <p class="text-xs md:text-sm text-slate-600 mt-0.5">+91 8208429912<br>+91 8669662105</p>
+                                    </div>
+                                </div>
+                                <div class="h-px bg-slate-100 w-full"></div>
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                                        <span class="material-symbols-outlined text-xl">mail</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-display font-bold text-base text-primary">Email Us</h3>
+                                        <p class="text-xs md:text-sm text-slate-600 mt-0.5">
+                                            <a href="mailto:info@mitacsc.ac.in" class="hover:underline text-primary font-medium">info.alandi@mitjuniorcolleges.edu.in</a><br>
+                                            <a href="mailto:admissions@mitacsc.ac.in" class="hover:underline text-primary font-medium">alandi.admissions@mitjuniorcolleges.edu.in</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col">
+                            <div class="h-56 w-full">
+                                <iframe allowfullscreen="" height="100%" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3779.463544643434!2d73.8884443759544!3d18.67681496431844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c88039639623%3A0x798ad3830387db77!2sMIT%20Junior%20College%20Alandi!5e0!3m2!1sen!2sin!4v1715850000000!5m2!1sen!2sin" style="border:0;" width="100%"></iframe>
+                            </div>
+                            <div class="p-4 bg-slate-50 border-t border-slate-200">
+                                <a class="bg-primary text-white px-6 py-3 rounded-xl font-semibold text-xs hover:bg-primary-hover transition-colors flex items-center justify-center gap-2 w-full shadow-sm" href="https://www.google.com/maps/dir/?api=1&destination=MIT+Junior+College+Alandi,+opp.+Gajanan+Maharaj+Temple,+Alandi,+Pune,+Maharashtra+412105" target="_blank">
+                                    <span class="material-symbols-outlined text-base">directions</span> Get Directions
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+ <!-- ================= PAGE 7: CREDITS ================= -->
+        <div id="tab-credits" class="tab-content">
+            <!-- Hero Banner -->
+            <section class="bg-primary text-white py-16 md:py-24 text-center">
+                <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop space-y-3">
+                    <span class="bg-white/10 text-tertiary-fixed text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider">Development & Design</span>
+                    <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold">Credits & Acknowledgements</h1>
+                    <p class="text-slate-300 text-base max-w-2xl mx-auto">The MIT Virtual Global High School represents a collaborative effort spanning multiple disciplines, institutions, and innovative minds dedicated to advancing global education.</p>
+                </div>
+            </section>
+
+            <div class="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 md:py-16">
+                <!-- Mentor Section -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-8 mb-12 shadow-sm">
+                    <span class="text-secondary font-semibold text-xs uppercase tracking-wider block mb-2">Faculty Mentor</span>
+                    <h2 class="font-display font-bold text-2xl text-primary mb-6">Our Mentor</h2>
+                    <div class="flex flex-col sm:flex-row items-center gap-6">
+                        <div class="w-28 h-28 rounded-full overflow-hidden border-4 border-primary/20 shrink-0 shadow-md">
+                            <img src="https://i.ibb.co/ycK5Y4zD/1785244809890.png" alt="Mr. Shrikant Achole" class="w-full h-full object-cover">
+                        </div>
+                        <div class="text-center sm:text-left">
+                            <h3 class="font-display font-bold text-xl text-primary">Mr. Shrikant Achole</h3>
+                            <p class="text-sm font-semibold text-secondary mb-1">Guiding & Inspiring Us</p>
+                            <p class="text-xs text-slate-600 leading-relaxed max-w-xl">Lecturer - Computer Science. Mentor for technical design and student development.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Section -->
+                <div class="space-y-6">
+                    <div class="text-center space-y-1">
+                        <span class="text-secondary font-semibold text-xs uppercase tracking-wider">Creators</span>
+                        <h2 class="font-display font-bold text-3xl text-primary">Our Team</h2>
+                        <p class="text-xs text-slate-500">Meet the creators behind the website!</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
+                        <!-- Lead Developer -->
+                        <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all text-center p-6 flex flex-col items-center">
+                            <span class="bg-primary text-white text-[10px] font-bold uppercase px-3 py-1 rounded-full mb-4">Lead Developer</span>
+                            <div class="w-24 h-24 rounded-full overflow-hidden border-2 border-slate-200 mb-4 shadow-sm">
+                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEKZRUlVU9f6bblpyCoKFvdUiqzBsteG9jxADOYm1D9Wkhx35TwjkjioFZYGR1MFzwIp5zqXKhvQcgd4Xmnz6BDpk6IvZDYXfp7hXNzdKvwcB1vLs2aOgoSgVMS89M4MSsMfyA7S7mrkTDWr3v51i69iTKMKqkaVvvTpIfM5JW1gkl23_LofG4ca8AX3t44aGAL8pfanytqZwoFjFNww3IH1MF3hBZtKrl1-GxMsFErf8irisGXH5fIbsVO6H3lDlBU8g6Fsn8Cbo" alt="Prerak Acharya" class="w-full h-full object-cover">
+                            </div>
+                            <h3 class="font-display font-bold text-lg text-primary">Prerak Acharya</h3>
+                            <p class="text-xs text-slate-500 mb-2">12th CS Bifocal</p>
+                            <p class="text-xs font-semibold    text-slate-600 uppercase"> Coding & Building Site</p>
+                        </div>
+
+                        <!-- Assistant Developer -->
+                        <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all text-center p-6 flex flex-col items-center">
+                            <span class="bg-slate-100 text-slate-800 text-[10px] font-bold uppercase px-3 py-1 rounded-full mb-4">Assistant Developer</span>
+                            <div class="w-24 h-24 rounded-full overflow-hidden border-2 border-slate-200 mb-4 shadow-sm">
+                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuArFzD_jxmq-nfoFYNhPYfdRY8lwceHk41WAr37lHlsBzFYrlHlRtd5cLzQwvFuDrmo-ey98oDL31hbCV4Rs0aZ-_Z56s2MaI-6OLQsA5h6Fof3t1tR5mZ2oWPZhWEChnoUsenffxI_TXZKzsmNjmU11tSO-NeNE1qexRKNIZXJhSA_G6Dvy2z3XOxkpOZjhPlbpBGyAim50soqwaf4cRgX5PqG0YJYPOGaYe78kC7HsjK5l2bVFaxagCK0GfToyMTrYwepaQFFL80" alt="Jayesh Patil" class="w-full h-full object-cover">
+                            </div>
+                            <h3 class="font-display font-bold text-lg text-primary">Jayesh Patil</h3>
+                            <p class="text-xs text-slate-500 mb-2">12th CS Bifocal</p>
+                            <p class="text-xs font-semibold text-slate-600 uppercase">Graphic Designer / UI Asset</p>
+                        </div>
+
+                        <!-- Code Contributor -->
+                        <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all text-center p-6 flex flex-col items-center">
+                            <span class="bg-slate-100 text-slate-800 text-[10px] font-bold uppercase px-3 py-1 rounded-full mb-4">Web Tester</span>
+                            <div class="w-24 h-24 rounded-full overflow-hidden border-2 border-slate-200 mb-4 shadow-sm">
+                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7GPY3U2xzWNNjvoYKHNNVLvy35JNoeOitUvlUTUkehRiYE5WGOPOp2oqCKAf5jf-OY6XtLbNPxfy0KrqvQjTURNSHpIDSnZuJV_5-LuV_-gZFaMPzSSarmDLzBsg2oTdoTIU6VzNyfirP77QIEol7x5MySzfLfR6PwsAdJRLq25SLdYCkbMXHSp0mh4RmzwuZNcNBlRex3FOk1ALLGbHbOCJMyVlaoMDVflNreOmFDavRtD6mxHM9ooiTkDnVrBh_jy2c8xuVjQE" alt="Shreya Salunke" class="w-full h-full object-cover">
+                            </div>
+                            <h3 class="font-display font-bold text-lg text-primary">Shreya Salunke</h3>
+                            <p class="text-xs text-slate-500 mb-2">12th CS Bifocal</p>
+                            <p class="text-xs font-semibold text-slate-600 uppercase italic">Web Testing & Presention</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="w-full mt-auto bg-[#0b1329] text-[#94a3b8] font-sans text-xs border-t-4 border-secondary">
+        <div class="max-w-container-max mx-auto px-margin-desktop py-12 md:py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                <!-- Brand Column -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUfnzM1ZFfxJ2IlHYTbBmVBmQsngn1gxtLGH1UT4ufygi5Ooyy0UZXfQ_j88eClzD6j24uEzbH01Egb_r-HvJXPELA9Hztu1wMyj9IeJzY8Wnyde0my2At2NS3XI_h3nWZyWVKLH-mPA_jRrHfecJVhrrdIYtELkx9bA_LDKk3eeD8YC_ah-ut8i0U_YiMfDQ5pW723cWm-CjdW1Q5T329NVFli0e9cWWpGC6pBHgCJ8PUHuGBOh73GwtngZBgGtYA6cMGd7_3ouk" alt="MIT Junior College Logo" class="h-10 w-10 object-contain">
+                        <span class="font-display font-bold text-white text-base tracking-tight uppercase">MIT JUNIOR COLLEGE</span>
+                    </div>
+                    <p class="leading-relaxed">MAEER's MIT Junior Colleges, Alandi. Providing academic excellence, integrated competitive coaching, and values-based education for HSC board and national entrances.</p>
+                    
+                    <!-- Social Portals -->
+                    <div class="pt-2">
+                        <span class="text-slate-400 font-semibold uppercase tracking-wider block text-[10px] mb-2">Follow Our Official Portals</span>
+                        <div class="flex items-center gap-3 text-white">
+                            <a href="https://www.instagram.com/maeersmitjuniorcollegealandi?igsh=MXhnemdwdTRveHZ2ZA==" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-white/10 hover:bg-secondary flex items-center justify-center transition-colors" title="Instagram">
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                            </a>
+   
+     <a  <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                            </a>
+
+<a href="https://www.facebook.com/share/1BeppVKT3e/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-white/10 hover:bg-secondary flex items-center justify-center transition-colors" title="Facebook">
+    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+</a>
+              </div>
+           </div>
+         </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-display font-bold text-white text-sm uppercase tracking-wider mb-4">Quick Links</h4>
+                    <ul class="space-y-2.5">
+                        <li><button onclick="switchTab('about')" class="hover:text-white transition-colors">About Us</button></li>
+                        <li><button onclick="switchTab('courses')" class="hover:text-white transition-colors">Our Courses</button></li>
+                        <li><button onclick="switchTab('admissions')" class="hover:text-white transition-colors">Admissions</button></li>
+                        <li><button onclick="switchTab('faculty')" class="hover:text-white transition-colors">Faculty Directory</button></li>
+                        <li><button onclick="switchTab('contact')" class="hover:text-white transition-colors">Contact & Location</button></li>
+                    </ul>
+                </div>
+
+                <!-- Campuses -->
+                <div>
+                    <h4 class="font-display font-bold text-white text-sm uppercase tracking-wider mb-4">Campuses</h4>
+                    <ul class="space-y-2.5">
+                        <li><a class="hover:text-white transition-colors" href="#">MIT Alandi Campus</a></li>
+                        <li><a class="hover:text-white transition-colors" href="#">MIT Loni Kalbhor</a></li>
+                        <li><a class="hover:text-white transition-colors" href="#">MIT Talegaon</a></li>
+                        <li><a class="hover:text-white transition-colors" href="#">MIT Sangli</a></li>
+                        <li><a class="hover:text-white transition-colors" href="#">MIT Solapur</a></li>
+                        <li><a class="hover:text-white"
+"transition-colors" href="#">MIT Pandharpur</a></li>
+                        <li><a class="hover:text-white"
+"transition-colors" href="#">MIT Barshi</a></li>
+                        <li><a class="hover:text-white"
+"transition-colors" href="#">MIT Nanded</a></li>                                                       
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-display font-bold text-white text-sm uppercase tracking-wider mb-4">Admissions Helpline</h4>
+                    <div class="space-y-3">
+                        <p>For enquiries call:<br>
+                            <a class="text-white hover:text-secondary font-medium" href="tel:+918208429912">+91 8208429912</a><br>
+                            <a class="text-white hover:text-secondary font-medium" href="tel:+918669662105">+91 8669662105</a>
+                        </p>
+                        <p class="leading-relaxed">Address:<br>Opp. Gajanan Maharaj Temple, Alandi (D),<br>Tal. Khed, Dist. Pune - 412105</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-400">
+                <p>© 2026 MAEER's MIT Junior Colleges & VGHS. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <button onclick="switchTab('credits')" class="hover:text-white transition-colors">Credits</button>
+                    <a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+                    <a class="hover:text-white transition-colors" href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification Modal Box -->
+    <div id="custom-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-2xl max-w-sm w-full p-6 text-center shadow-2xl space-y-4">
+            <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
+                <span class="material-symbols-outlined text-2xl">check_circle</span>
+            </div>
+            <h3 class="font-display font-bold text-xl text-primary" id="modal-title">Success!</h3>
+            <p class="text-xs text-slate-600 leading-relaxed" id="modal-msg">Your submission was received successfully.</p>
+            <button onclick="closeModal()" class="w-full bg-primary text-white py-2.5 rounded-xl font-semibold text-xs hover:bg-primary-hover transition-colors">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript Navigation & Interactivity -->
+    <script>
+        function switchTab(tabId) {
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            const targetTab = document.getElementById('tab-' + tabId);
+            if (targetTab) {
+                targetTab.classList.add('active');
+            }
+
+            const navButtons = document.querySelectorAll('.nav-btn');
+            navButtons.forEach(btn => {
+                if (btn.getAttribute('data-tab') === tabId) {
+                    btn.className = "nav-btn text-secondary font-bold border-b-2 border-secondary pb-1 transition-all";
+                } else {
+                    btn.className = "nav-btn text-on-surface-variant hover:text-primary font-medium transition-colors";
+                }
+            });
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+        }
+
+        function filterCourses() {
+            const query = document.getElementById('courseSearchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.course-card');
+            
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function filterStream(stream) {
+            const buttons = document.querySelectorAll('.stream-btn');
+            buttons.forEach(btn => {
+                btn.className = "stream-btn px-5 py-2 rounded-lg text-slate-600 hover:bg-white font-medium text-xs md:text-sm transition-all";
+            });
+
+            const activeBtn = document.getElementById('btn-stream-' + stream);
+            if (activeBtn) {
+                activeBtn.className = "stream-btn px-5 py-2 rounded-lg bg-primary text-white font-medium text-xs md:text-sm shadow-sm transition-all";
+            }
+
+            const cards = document.querySelectorAll('.course-card');
+            cards.forEach(card => {
+                if (stream === 'all' || card.getAttribute('data-stream') === stream) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function filterFaculty(cat) {
+            const buttons = document.querySelectorAll('.fac-filter-btn');
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-cat') === cat) {
+                    btn.className = "fac-filter-btn px-5 py-2 rounded-lg bg-primary text-white text-xs font-semibold shadow-sm transition-all";
+                } else {
+                    btn.className = "fac-filter-btn px-5 py-2 rounded-lg text-slate-600 hover:bg-slate-100 text-xs font-semibold transition-all";
+                }
+            });
+
+            const cards = document.querySelectorAll('.fac-card');
+            cards.forEach(card => {
+                const categories = card.getAttribute('data-cat') || '';
+                if (cat === 'all' || categories.includes(cat)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            document.getElementById('modal-title').innerText = "Message Sent!";
+            document.getElementById('modal-msg').innerText = "Thank you for reaching out to MIT Junior College. Our admissions team will get back to you shortly.";
+            document.getElementById('custom-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('custom-modal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
+
